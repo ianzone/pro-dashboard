@@ -123,7 +123,7 @@ const Articles: FC = () => {
         label: item.name,
         value: item.id,
       })),
-    [owners],
+    [],
   );
 
   return (

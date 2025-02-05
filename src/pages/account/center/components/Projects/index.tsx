@@ -2,7 +2,7 @@ import { useRequest } from '@umijs/max';
 import { Card, List } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import React from 'react';
+
 import type { ListItemDataType } from '../../data.d';
 import { queryFakeList } from '../../service';
 import AvatarList from '../AvatarList';
@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
   return (
     <List<ListItemDataType>
       className={styles.coverCardList}
-      rowKey="id"
+      rowKey='id'
       grid={{
         gutter: 24,
         xxl: 3,
@@ -33,11 +33,11 @@ const Projects: React.FC = () => {
       renderItem={(item) => (
         <List.Item>
           <Card className={styles.card} hoverable cover={<img alt={item.title} src={item.cover} />}>
-            <Card.Meta title={<a>{item.title}</a>} description={item.subDescription} />
+            <Card.Meta title={<a href='.'>{item.title}</a>} description={item.subDescription} />
             <div className={styles.cardItemContent}>
               <span>{dayjs(item.updatedAt).fromNow()}</span>
               <div className={styles.avatarList}>
-                <AvatarList size="small">
+                <AvatarList size='small'>
                   {item.members.map((member) => (
                     <AvatarList.Item
                       key={`${item.id}-avatar-${member.id}`}

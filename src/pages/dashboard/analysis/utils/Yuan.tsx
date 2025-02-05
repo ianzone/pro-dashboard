@@ -1,8 +1,8 @@
-import React from 'react';
+import { Component } from 'react';
 import { yuan } from '../components/Charts';
 /** 减少使用 dangerouslySetInnerHTML */
-export default class Yuan extends React.Component<{
-  children: React.ReactText;
+export default class Yuan extends Component<{
+  children: string;
 }> {
   main: HTMLSpanElement | undefined | null = null;
 

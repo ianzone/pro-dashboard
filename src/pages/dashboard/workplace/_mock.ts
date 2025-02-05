@@ -374,8 +374,8 @@ const radarTitleMap = {
   contribute: '贡献',
   hot: '热度',
 };
-radarOriginData.forEach((item) => {
-  Object.keys(item).forEach((key) => {
+for (const item of radarOriginData) {
+  for (const key of Object.keys(item)) {
     if (key !== 'name') {
       radarData.push({
         name: item.name,
@@ -383,8 +383,8 @@ radarOriginData.forEach((item) => {
         value: item[key as 'ref'],
       });
     }
-  });
-});
+  }
+}
 
 const getChartData = (_: Request, res: Response) => {
   res.json({

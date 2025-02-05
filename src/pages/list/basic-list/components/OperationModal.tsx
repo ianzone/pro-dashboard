@@ -36,7 +36,7 @@ const OperationModal: FC<OperationModalProps> = (props) => {
       submitter={{
         render: (_, dom) => (done ? null : dom),
       }}
-      trigger={<>{children}</>}
+      trigger={children}
       modalProps={{
         onCancel: () => onDone(),
         destroyOnClose: true,
@@ -50,19 +50,19 @@ const OperationModal: FC<OperationModalProps> = (props) => {
       {!done ? (
         <>
           <ProFormText
-            name="title"
-            label="任务名称"
+            name='title'
+            label='任务名称'
             rules={[
               {
                 required: true,
                 message: '请输入任务名称',
               },
             ]}
-            placeholder="请输入"
+            placeholder='请输入'
           />
           <ProFormDateTimePicker
-            name="createdAt"
-            label="开始时间"
+            name='createdAt'
+            label='开始时间'
             rules={[
               {
                 required: true,
@@ -74,11 +74,11 @@ const OperationModal: FC<OperationModalProps> = (props) => {
                 width: '100%',
               },
             }}
-            placeholder="请选择"
+            placeholder='请选择'
           />
           <ProFormSelect
-            name="owner"
-            label="任务负责人"
+            name='owner'
+            label='任务负责人'
             rules={[
               {
                 required: true,
@@ -95,27 +95,27 @@ const OperationModal: FC<OperationModalProps> = (props) => {
                 value: 'mao',
               },
             ]}
-            placeholder="请选择管理员"
+            placeholder='请选择管理员'
           />
           <ProFormTextArea
-            name="subDescription"
-            label="产品描述"
+            name='subDescription'
+            label='产品描述'
             rules={[
               {
                 message: '请输入至少五个字符的产品描述！',
                 min: 5,
               },
             ]}
-            placeholder="请输入至少五个字符"
+            placeholder='请输入至少五个字符'
           />
         </>
       ) : (
         <Result
-          status="success"
-          title="操作成功"
-          subTitle="一系列的信息描述，很短同样也可以带标点。"
+          status='success'
+          title='操作成功'
+          subTitle='一系列的信息描述，很短同样也可以带标点。'
           extra={
-            <Button type="primary" onClick={onDone}>
+            <Button type='primary' onClick={onDone}>
               知道了
             </Button>
           }

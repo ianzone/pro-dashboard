@@ -8,8 +8,8 @@ import {
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
-import { Button, Input, message, Upload } from 'antd';
-import React from 'react';
+import { Button, Input, Upload, message } from 'antd';
+
 import { queryCity, queryCurrent, queryProvince } from '../service';
 import useStyles from './index.style';
 
@@ -30,7 +30,7 @@ const BaseView: React.FC = () => {
     <>
       <div className={styles.avatar_title}>头像</div>
       <div className={styles.avatar}>
-        <img src={avatar} alt="avatar" />
+        <img src={avatar} alt='avatar' />
       </div>
       <Upload showUploadList={false}>
         <div className={styles.button_view}>
@@ -64,7 +64,7 @@ const BaseView: React.FC = () => {
         <>
           <div className={styles.left}>
             <ProForm
-              layout="vertical"
+              layout='vertical'
               onFinish={handleFinish}
               submitter={{
                 searchConfig: {
@@ -76,12 +76,11 @@ const BaseView: React.FC = () => {
                 ...currentUser,
                 phone: currentUser?.phone.split('-'),
               }}
-              hideRequiredMark
             >
               <ProFormText
-                width="md"
-                name="email"
-                label="邮箱"
+                width='md'
+                name='email'
+                label='邮箱'
                 rules={[
                   {
                     required: true,
@@ -90,9 +89,9 @@ const BaseView: React.FC = () => {
                 ]}
               />
               <ProFormText
-                width="md"
-                name="name"
-                label="昵称"
+                width='md'
+                name='name'
+                label='昵称'
                 rules={[
                   {
                     required: true,
@@ -101,20 +100,20 @@ const BaseView: React.FC = () => {
                 ]}
               />
               <ProFormTextArea
-                name="profile"
-                label="个人简介"
+                name='profile'
+                label='个人简介'
                 rules={[
                   {
                     required: true,
                     message: '请输入个人简介!',
                   },
                 ]}
-                placeholder="个人简介"
+                placeholder='个人简介'
               />
               <ProFormSelect
-                width="sm"
-                name="country"
-                label="国家/地区"
+                width='sm'
+                name='country'
+                label='国家/地区'
                 rules={[
                   {
                     required: true,
@@ -129,7 +128,7 @@ const BaseView: React.FC = () => {
                 ]}
               />
 
-              <ProForm.Group title="所在省市" size={8}>
+              <ProForm.Group title='所在省市' size={8}>
                 <ProFormSelect
                   rules={[
                     {
@@ -137,11 +136,11 @@ const BaseView: React.FC = () => {
                       message: '请输入您的所在省!',
                     },
                   ]}
-                  width="sm"
+                  width='sm'
                   fieldProps={{
                     labelInValue: true,
                   }}
-                  name="province"
+                  name='province'
                   className={styles.item}
                   request={async () => {
                     return queryProvince().then(({ data }) => {
@@ -161,8 +160,8 @@ const BaseView: React.FC = () => {
                         params={{
                           key: province?.value,
                         }}
-                        name="city"
-                        width="sm"
+                        name='city'
+                        width='sm'
                         rules={[
                           {
                             required: true,
@@ -190,9 +189,9 @@ const BaseView: React.FC = () => {
                 </ProFormDependency>
               </ProForm.Group>
               <ProFormText
-                width="md"
-                name="address"
-                label="街道地址"
+                width='md'
+                name='address'
+                label='街道地址'
                 rules={[
                   {
                     required: true,
@@ -201,8 +200,8 @@ const BaseView: React.FC = () => {
                 ]}
               />
               <ProFormFieldSet
-                name="phone"
-                label="联系电话"
+                name='phone'
+                label='联系电话'
                 rules={[
                   {
                     required: true,

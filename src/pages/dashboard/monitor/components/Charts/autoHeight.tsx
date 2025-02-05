@@ -1,14 +1,14 @@
-import React from 'react';
+import { Component } from 'react';
 
 export type IReactComponent<P = any> = React.ComponentClass<P> | React.ClassicComponentClass<P>;
 
 function computeHeight(node: HTMLDivElement) {
   const { style } = node;
   style.height = '100%';
-  const totalHeight = parseInt(`${getComputedStyle(node).height}`, 10);
+  const totalHeight = Number.parseInt(`${getComputedStyle(node).height}`, 10);
   const padding =
-    parseInt(`${getComputedStyle(node).paddingTop}`, 10) +
-    parseInt(`${getComputedStyle(node).paddingBottom}`, 10);
+    Number.parseInt(`${getComputedStyle(node).paddingTop}`, 10) +
+    Number.parseInt(`${getComputedStyle(node).paddingBottom}`, 10);
   return totalHeight - padding;
 }
 
@@ -36,7 +36,7 @@ function autoHeight() {
   return <P extends AutoHeightProps>(
     WrappedComponent: React.ComponentClass<P> | React.FC<P>,
   ): React.ComponentClass<P> => {
-    class AutoHeightComponent extends React.Component<P & AutoHeightProps> {
+    class AutoHeightComponent extends Component<P & AutoHeightProps> {
       state = {
         computedHeight: 0,
       };

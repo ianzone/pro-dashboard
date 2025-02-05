@@ -1,11 +1,9 @@
-﻿import { TestBrowser } from '@@/testBrowser';
+﻿import { startMock } from '@@/requestRecordMock';
+import { TestBrowser } from '@@/testBrowser';
 import { act, fireEvent, render } from '@testing-library/react';
-import React from 'react';
+import { createRef } from 'react';
 
-// @ts-ignore
-import { startMock } from '@@/requestRecordMock';
-
-const waitTime = (time: number = 100) => {
+const waitTime = (time = 100) => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(true);
@@ -30,7 +28,7 @@ describe('Login Page', () => {
   });
 
   it('should show login form', async () => {
-    const historyRef = React.createRef<any>();
+    const historyRef = createRef<any>();
     const rootContainer = render(
       <TestBrowser
         historyRef={historyRef}
@@ -56,7 +54,7 @@ describe('Login Page', () => {
   });
 
   it('should login success', async () => {
-    const historyRef = React.createRef<any>();
+    const historyRef = createRef<any>();
     const rootContainer = render(
       <TestBrowser
         historyRef={historyRef}

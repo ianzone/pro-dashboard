@@ -1,11 +1,11 @@
 import { List, Switch } from 'antd';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 
 type Unpacked<T> = T extends (infer U)[] ? U : T;
 
 const NotificationView: React.FC = () => {
   const getData = () => {
-    const Action = <Switch checkedChildren="开" unCheckedChildren="关" defaultChecked />;
+    const Action = <Switch checkedChildren='开' unCheckedChildren='关' defaultChecked />;
     return [
       {
         title: '账户密码',
@@ -29,7 +29,7 @@ const NotificationView: React.FC = () => {
   return (
     <Fragment>
       <List<Unpacked<typeof data>>
-        itemLayout="horizontal"
+        itemLayout='horizontal'
         dataSource={data}
         renderItem={(item) => (
           <List.Item actions={item.actions}>

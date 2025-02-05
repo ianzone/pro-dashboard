@@ -1,5 +1,5 @@
 import { PageContainer } from '@ant-design/pro-components';
-import { history, Outlet, useLocation, useMatch } from '@umijs/max';
+import { Outlet, history, useLocation, useMatch } from '@umijs/max';
 import { Input } from 'antd';
 import type { FC } from 'react';
 
@@ -24,7 +24,7 @@ const tabList = [
 
 const Search: FC<SearchProps> = () => {
   const location = useLocation();
-  let match = useMatch(location.pathname);
+  const match = useMatch(location.pathname);
   const handleTabChange = (key: string) => {
     const url =
       match?.pathname === '/' ? '' : match?.pathname.substring(0, match.pathname.lastIndexOf('/'));
@@ -61,9 +61,9 @@ const Search: FC<SearchProps> = () => {
       content={
         <div style={{ textAlign: 'center' }}>
           <Input.Search
-            placeholder="请输入"
-            enterButton="搜索"
-            size="large"
+            placeholder='请输入'
+            enterButton='搜索'
+            size='large'
             onSearch={handleFormSubmit}
             style={{ maxWidth: 522, width: '100%' }}
           />

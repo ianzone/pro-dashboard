@@ -1,15 +1,19 @@
 import { addRule } from '@/services/ant-design-pro/api';
 import { PlusOutlined } from '@ant-design/icons';
-import { ActionType, ModalForm, ProFormText, ProFormTextArea } from '@ant-design/pro-components';
+import {
+  type ActionType,
+  ModalForm,
+  ProFormText,
+  ProFormTextArea,
+} from '@ant-design/pro-components';
 import { FormattedMessage, useIntl, useRequest } from '@umijs/max';
 import { Button, message } from 'antd';
-import { FC } from 'react';
 
 interface CreateFormProps {
   reload?: ActionType['reload'];
 }
 
-const CreateForm: FC<CreateFormProps> = (props) => {
+const CreateForm: React.FC<CreateFormProps> = (props) => {
   const { reload } = props;
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -39,11 +43,11 @@ const CreateForm: FC<CreateFormProps> = (props) => {
           defaultMessage: 'New rule',
         })}
         trigger={
-          <Button type="primary" icon={<PlusOutlined />}>
-            <FormattedMessage id="pages.searchTable.new" defaultMessage="New" />
+          <Button type='primary' icon={<PlusOutlined />}>
+            <FormattedMessage id='pages.searchTable.new' defaultMessage='New' />
           </Button>
         }
-        width="400px"
+        width='400px'
         modalProps={{ okButtonProps: { loading } }}
         onFinish={async (value) => {
           await run({ data: value as API.RuleListItem });
@@ -57,16 +61,16 @@ const CreateForm: FC<CreateFormProps> = (props) => {
               required: true,
               message: (
                 <FormattedMessage
-                  id="pages.searchTable.ruleName"
-                  defaultMessage="Rule name is required"
+                  id='pages.searchTable.ruleName'
+                  defaultMessage='Rule name is required'
                 />
               ),
             },
           ]}
-          width="md"
-          name="name"
+          width='md'
+          name='name'
         />
-        <ProFormTextArea width="md" name="desc" />
+        <ProFormTextArea width='md' name='desc' />
       </ModalForm>
     </>
   );

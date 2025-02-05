@@ -2,7 +2,7 @@
 import { Card } from 'antd';
 import type { CardProps } from 'antd/es/card';
 import classNames from 'classnames';
-import React from 'react';
+
 import useStyles from './index.style';
 type totalType = () => React.ReactNode;
 
@@ -91,11 +91,7 @@ const ChartCard: React.FC<ChartCardProps> = (props) => {
     ...rest
   } = props;
   return (
-    <Card
-      loading={loading}
-      styles={{body:{padding: '20px 24px 8px 24px'}}}
-      {...rest}
-    >
+    <Card loading={loading} styles={{ body: { padding: '20px 24px 8px 24px' } }} {...rest}>
       {renderContent()}
     </Card>
   );

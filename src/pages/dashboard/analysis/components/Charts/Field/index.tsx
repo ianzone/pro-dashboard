@@ -1,4 +1,3 @@
-import React from 'react';
 import useStyles from './index.style';
 export type FieldProps = {
   label: React.ReactNode;

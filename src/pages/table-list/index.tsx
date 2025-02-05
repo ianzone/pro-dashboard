@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-components';
 import { FormattedMessage, useIntl, useRequest } from '@umijs/max';
 import { Button, Drawer, Input, message } from 'antd';
-import React, { useCallback, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
@@ -44,15 +44,15 @@ const TableList: React.FC = () => {
     {
       title: (
         <FormattedMessage
-          id="pages.searchTable.updateForm.ruleName.nameLabel"
-          defaultMessage="Rule name"
+          id='pages.searchTable.updateForm.ruleName.nameLabel'
+          defaultMessage='Rule name'
         />
       ),
       dataIndex: 'name',
-      tip: 'The rule name is the unique key',
       render: (dom, entity) => {
         return (
           <a
+            href='.'
             onClick={() => {
               setCurrentRow(entity);
               setShowDetail(true);
@@ -64,15 +64,15 @@ const TableList: React.FC = () => {
       },
     },
     {
-      title: <FormattedMessage id="pages.searchTable.titleDesc" defaultMessage="Description" />,
+      title: <FormattedMessage id='pages.searchTable.titleDesc' defaultMessage='Description' />,
       dataIndex: 'desc',
       valueType: 'textarea',
     },
     {
       title: (
         <FormattedMessage
-          id="pages.searchTable.titleCallNo"
-          defaultMessage="Number of service calls"
+          id='pages.searchTable.titleCallNo'
+          defaultMessage='Number of service calls'
         />
       ),
       dataIndex: 'callNo',
@@ -85,36 +85,36 @@ const TableList: React.FC = () => {
         })}`,
     },
     {
-      title: <FormattedMessage id="pages.searchTable.titleStatus" defaultMessage="Status" />,
+      title: <FormattedMessage id='pages.searchTable.titleStatus' defaultMessage='Status' />,
       dataIndex: 'status',
       hideInForm: true,
       valueEnum: {
         0: {
           text: (
             <FormattedMessage
-              id="pages.searchTable.nameStatus.default"
-              defaultMessage="Shut down"
+              id='pages.searchTable.nameStatus.default'
+              defaultMessage='Shut down'
             />
           ),
           status: 'Default',
         },
         1: {
           text: (
-            <FormattedMessage id="pages.searchTable.nameStatus.running" defaultMessage="Running" />
+            <FormattedMessage id='pages.searchTable.nameStatus.running' defaultMessage='Running' />
           ),
           status: 'Processing',
         },
         2: {
           text: (
-            <FormattedMessage id="pages.searchTable.nameStatus.online" defaultMessage="Online" />
+            <FormattedMessage id='pages.searchTable.nameStatus.online' defaultMessage='Online' />
           ),
           status: 'Success',
         },
         3: {
           text: (
             <FormattedMessage
-              id="pages.searchTable.nameStatus.abnormal"
-              defaultMessage="Abnormal"
+              id='pages.searchTable.nameStatus.abnormal'
+              defaultMessage='Abnormal'
             />
           ),
           status: 'Error',
@@ -124,8 +124,8 @@ const TableList: React.FC = () => {
     {
       title: (
         <FormattedMessage
-          id="pages.searchTable.titleUpdatedAt"
-          defaultMessage="Last scheduled time"
+          id='pages.searchTable.titleUpdatedAt'
+          defaultMessage='Last scheduled time'
         />
       ),
       sorter: true,
@@ -151,24 +151,24 @@ const TableList: React.FC = () => {
       },
     },
     {
-      title: <FormattedMessage id="pages.searchTable.titleOption" defaultMessage="Operating" />,
+      title: <FormattedMessage id='pages.searchTable.titleOption' defaultMessage='Operating' />,
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => [
         <UpdateForm
           trigger={
-            <a>
-              <FormattedMessage id="pages.searchTable.config" defaultMessage="Configuration" />
+            <a href='.'>
+              <FormattedMessage id='pages.searchTable.config' defaultMessage='Configuration' />
             </a>
           }
-          key="config"
+          key='config'
           onOk={actionRef.current?.reload}
           values={record}
         />,
-        <a key="subscribeAlert" href="https://procomponents.ant.design/">
+        <a key='subscribeAlert' href='https://procomponents.ant.design/'>
           <FormattedMessage
-            id="pages.searchTable.subscribeAlert"
-            defaultMessage="Subscribe to alerts"
+            id='pages.searchTable.subscribeAlert'
+            defaultMessage='Subscribe to alerts'
           />
         </a>,
       ],
@@ -195,7 +195,7 @@ const TableList: React.FC = () => {
         },
       });
     },
-    [delRun],
+    [delRun, messageApi],
   );
 
   return (
@@ -207,11 +207,11 @@ const TableList: React.FC = () => {
           defaultMessage: 'Enquiry form',
         })}
         actionRef={actionRef}
-        rowKey="key"
+        rowKey='key'
         search={{
           labelWidth: 120,
         }}
-        toolBarRender={() => [<CreateForm key="create" reload={actionRef.current?.reload} />]}
+        toolBarRender={() => [<CreateForm key='create' reload={actionRef.current?.reload} />]}
         request={rule}
         columns={columns}
         rowSelection={{
@@ -224,17 +224,19 @@ const TableList: React.FC = () => {
         <FooterToolbar
           extra={
             <div>
-              <FormattedMessage id="pages.searchTable.chosen" defaultMessage="Chosen" />{' '}
-              <a style={{ fontWeight: 600 }}>{selectedRowsState.length}</a>{' '}
-              <FormattedMessage id="pages.searchTable.item" defaultMessage="项" />
+              <FormattedMessage id='pages.searchTable.chosen' defaultMessage='Chosen' />{' '}
+              <a href='.' style={{ fontWeight: 600 }}>
+                {selectedRowsState.length}
+              </a>{' '}
+              <FormattedMessage id='pages.searchTable.item' defaultMessage='项' />
               &nbsp;&nbsp;
               <span>
                 <FormattedMessage
-                  id="pages.searchTable.totalServiceCalls"
-                  defaultMessage="Total number of service calls"
+                  id='pages.searchTable.totalServiceCalls'
+                  defaultMessage='Total number of service calls'
                 />{' '}
                 {selectedRowsState.reduce((pre, item) => pre + item.callNo!, 0)}{' '}
-                <FormattedMessage id="pages.searchTable.tenThousand" defaultMessage="万" />
+                <FormattedMessage id='pages.searchTable.tenThousand' defaultMessage='万' />
               </span>
             </div>
           }
@@ -246,14 +248,14 @@ const TableList: React.FC = () => {
             }}
           >
             <FormattedMessage
-              id="pages.searchTable.batchDeletion"
-              defaultMessage="Batch deletion"
+              id='pages.searchTable.batchDeletion'
+              defaultMessage='Batch deletion'
             />
           </Button>
-          <Button type="primary">
+          <Button type='primary'>
             <FormattedMessage
-              id="pages.searchTable.batchApproval"
-              defaultMessage="Batch approval"
+              id='pages.searchTable.batchApproval'
+              defaultMessage='Batch approval'
             />
           </Button>
         </FooterToolbar>

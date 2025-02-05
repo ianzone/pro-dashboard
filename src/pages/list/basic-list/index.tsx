@@ -155,7 +155,7 @@ export const BasicList: FC = () => {
         ],
       }}
     >
-      <a>
+      <a href='.'>
         更多 <DownOutlined />
       </a>
     </Dropdown>
@@ -212,6 +212,7 @@ export const BasicList: FC = () => {
                 <List.Item
                   actions={[
                     <a
+                      href='.'
                       key='edit'
                       onClick={(e) => {
                         e.preventDefault();

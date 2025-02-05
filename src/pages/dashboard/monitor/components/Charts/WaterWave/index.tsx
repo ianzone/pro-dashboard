@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import autoHeight from '../autoHeight';
 
 /* eslint no-return-assign: 0 */
@@ -16,7 +16,7 @@ class WaterWave extends Component<WaterWaveProps> {
   state = {
     radio: 1,
   };
-  timer: number = 0;
+  timer = 0;
   root: HTMLDivElement | undefined | null = null;
   node: HTMLCanvasElement | undefined | null = null;
   componentDidMount() {

@@ -2,7 +2,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 import { Area } from '@ant-design/plots';
 import { Card, Col, Row, Table, Tooltip } from 'antd';
 import numeral from 'numeral';
-import React from 'react';
+
 import type { DataItem } from '../data.d';
 import useStyles from '../style.style';
 import NumberInfo from './NumberInfo';
@@ -30,7 +30,7 @@ const TopSearch = ({
       title: '搜索关键词',
       dataIndex: 'keyword',
       key: 'keyword',
-      render: (text: React.ReactNode) => <a href="/">{text}</a>,
+      render: (text: React.ReactNode) => <a href='/'>{text}</a>,
     },
     {
       title: '用户数',
@@ -79,7 +79,7 @@ const TopSearch = ({
     <Card
       loading={loading}
       bordered={false}
-      title="线上热门搜索"
+      title='线上热门搜索'
       extra={dropdownGroup}
       style={{
         height: '100%',
@@ -97,7 +97,7 @@ const TopSearch = ({
             subTitle={
               <span>
                 搜索用户数
-                <Tooltip title="指标说明">
+                <Tooltip title='指标说明'>
                   <InfoCircleOutlined
                     style={{
                       marginLeft: 8,
@@ -108,13 +108,13 @@ const TopSearch = ({
             }
             gap={8}
             total={numeral(12321).format('0,0')}
-            status="up"
+            status='up'
             subTotal={17.1}
           />
           <Area
-            xField="x"
-            yField="y"
-            shapeField="smooth"
+            xField='x'
+            yField='y'
+            shapeField='smooth'
             height={45}
             axis={false}
             padding={-12}
@@ -133,7 +133,7 @@ const TopSearch = ({
             subTitle={
               <span>
                 人均搜索次数
-                <Tooltip title="指标说明">
+                <Tooltip title='指标说明'>
                   <InfoCircleOutlined
                     style={{
                       marginLeft: 8,
@@ -143,14 +143,14 @@ const TopSearch = ({
               </span>
             }
             total={2.7}
-            status="down"
+            status='down'
             subTotal={26.2}
             gap={8}
           />
           <Area
-            xField="x"
-            yField="y"
-            shapeField="smooth"
+            xField='x'
+            yField='y'
+            shapeField='smooth'
             height={45}
             padding={-12}
             style={{ fill: 'linear-gradient(-90deg, white 0%, #6294FA 100%)', fillOpacity: 0.4 }}
@@ -161,7 +161,7 @@ const TopSearch = ({
       </Row>
       <Table<any>
         rowKey={(record) => record.index}
-        size="small"
+        size='small'
         columns={columns}
         dataSource={searchData}
         pagination={{

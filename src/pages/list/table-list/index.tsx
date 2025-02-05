@@ -10,7 +10,7 @@ import {
   ProTable,
 } from '@ant-design/pro-components';
 import { Button, Drawer, Input, message } from 'antd';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { FormValueType } from './components/UpdateForm';
 import UpdateForm from './components/UpdateForm';
 import type { TableListItem, TableListPagination } from './data';
@@ -160,7 +160,7 @@ const TableList: React.FC = () => {
         }
 
         if (`${status}` === '3') {
-          return <Input {...rest} placeholder="请输入异常原因！" />;
+          return <Input {...rest} placeholder='请输入异常原因！' />;
         }
 
         return defaultRender(item);
@@ -172,7 +172,7 @@ const TableList: React.FC = () => {
       valueType: 'option',
       render: (_, record) => [
         <a
-          key="config"
+          key='config'
           onClick={() => {
             handleUpdateModalVisible(true);
             setCurrentRow(record);
@@ -180,7 +180,7 @@ const TableList: React.FC = () => {
         >
           配置
         </a>,
-        <a key="subscribeAlert" href="https://procomponents.ant.design/">
+        <a key='subscribeAlert' href='https://procomponents.ant.design/'>
           订阅警报
         </a>,
       ],
@@ -190,16 +190,16 @@ const TableList: React.FC = () => {
   return (
     <PageContainer>
       <ProTable<TableListItem, TableListPagination>
-        headerTitle="查询表格"
+        headerTitle='查询表格'
         actionRef={actionRef}
-        rowKey="key"
+        rowKey='key'
         search={{
           labelWidth: 120,
         }}
         toolBarRender={() => [
           <Button
-            type="primary"
-            key="primary"
+            type='primary'
+            key='primary'
             onClick={() => {
               handleModalVisible(true);
             }}
@@ -243,12 +243,12 @@ const TableList: React.FC = () => {
           >
             批量删除
           </Button>
-          <Button type="primary">批量审批</Button>
+          <Button type='primary'>批量审批</Button>
         </FooterToolbar>
       )}
       <ModalForm
-        title="新建规则"
-        width="400px"
+        title='新建规则'
+        width='400px'
         open={createModalVisible}
         onVisibleChange={handleModalVisible}
         onFinish={async (value) => {
@@ -268,10 +268,10 @@ const TableList: React.FC = () => {
               message: '规则名称为必填项',
             },
           ]}
-          width="md"
-          name="name"
+          width='md'
+          name='name'
         />
-        <ProFormTextArea width="md" name="desc" />
+        <ProFormTextArea width='md' name='desc' />
       </ModalForm>
       <UpdateForm
         onSubmit={async (value) => {

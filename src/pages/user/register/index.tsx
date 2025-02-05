@@ -1,5 +1,5 @@
-import { history, Link, useRequest } from '@umijs/max';
-import { Button, Col, Form, Input, message, Popover, Progress, Row, Select, Space } from 'antd';
+import { Link, history, useRequest } from '@umijs/max';
+import { Button, Col, Form, Input, Popover, Progress, Row, Select, Space, message } from 'antd';
 import type { Store } from 'antd/es/form/interface';
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
@@ -123,7 +123,7 @@ const Register: FC = () => {
   const renderPasswordProgress = () => {
     const value = form.getFieldValue('password');
     const passwordStatus = getPasswordStatus();
-    return value && value.length ? (
+    return value?.length ? (
       <div className={styles[`progress-${passwordStatus}`]}>
         <Progress
           status={passwordProgressMap[passwordStatus]}
@@ -137,9 +137,9 @@ const Register: FC = () => {
   return (
     <div className={styles.main}>
       <h3>注册</h3>
-      <Form form={form} name="UserRegister" onFinish={onFinish}>
+      <Form form={form} name='UserRegister' onFinish={onFinish}>
         <FormItem
-          name="email"
+          name='email'
           rules={[
             {
               required: true,
@@ -151,11 +151,11 @@ const Register: FC = () => {
             },
           ]}
         >
-          <Input size="large" placeholder="邮箱" />
+          <Input size='large' placeholder='邮箱' />
         </FormItem>
         <Popover
           getPopupContainer={(node) => {
-            if (node && node.parentNode) {
+            if (node?.parentNode) {
               return node.parentNode as HTMLElement;
             }
             return node;
@@ -182,11 +182,11 @@ const Register: FC = () => {
           overlayStyle={{
             width: 240,
           }}
-          placement="right"
+          placement='right'
           open={open}
         >
           <FormItem
-            name="password"
+            name='password'
             className={
               form.getFieldValue('password') &&
               form.getFieldValue('password').length > 0 &&
@@ -198,11 +198,11 @@ const Register: FC = () => {
               },
             ]}
           >
-            <Input size="large" type="password" placeholder="至少6位密码，区分大小写" />
+            <Input size='large' type='password' placeholder='至少6位密码，区分大小写' />
           </FormItem>
         </Popover>
         <FormItem
-          name="confirm"
+          name='confirm'
           rules={[
             {
               required: true,
@@ -213,10 +213,10 @@ const Register: FC = () => {
             },
           ]}
         >
-          <Input size="large" type="password" placeholder="确认密码" />
+          <Input size='large' type='password' placeholder='确认密码' />
         </FormItem>
         <FormItem
-          name="mobile"
+          name='mobile'
           rules={[
             {
               required: true,
@@ -230,24 +230,24 @@ const Register: FC = () => {
         >
           <Space.Compact style={{ width: '100%' }}>
             <Select
-              size="large"
+              size='large'
               value={prefix}
               onChange={changePrefix}
               style={{
                 width: '30%',
               }}
             >
-              <Option value="86">+86</Option>
-              <Option value="87">+87</Option>
+              <Option value='86'>+86</Option>
+              <Option value='87'>+87</Option>
             </Select>
 
-            <Input size="large" placeholder="手机号" />
+            <Input size='large' placeholder='手机号' />
           </Space.Compact>
         </FormItem>
         <Row gutter={8}>
           <Col span={16}>
             <FormItem
-              name="captcha"
+              name='captcha'
               rules={[
                 {
                   required: true,
@@ -255,12 +255,12 @@ const Register: FC = () => {
                 },
               ]}
             >
-              <Input size="large" placeholder="验证码" />
+              <Input size='large' placeholder='验证码' />
             </FormItem>
           </Col>
           <Col span={8}>
             <Button
-              size="large"
+              size='large'
               disabled={!!count}
               className={styles.getCaptcha}
               onClick={onGetCaptcha}
@@ -272,15 +272,15 @@ const Register: FC = () => {
         <FormItem>
           <div className={styles.footer}>
             <Button
-              size="large"
+              size='large'
               loading={submitting}
               className={styles.submit}
-              type="primary"
-              htmlType="submit"
+              type='primary'
+              htmlType='submit'
             >
               <span>注册</span>
             </Button>
-            <Link to="/user/login">
+            <Link to='/user/login'>
               <span>使用已有账户登录</span>
             </Link>
           </div>

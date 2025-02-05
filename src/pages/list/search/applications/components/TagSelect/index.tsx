@@ -2,7 +2,7 @@ import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { Tag } from 'antd';
 import classNames from 'classnames';
 import { useMergedState } from 'rc-util';
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 import useStyles from './index.style';
 const { CheckableTag } = Tag;
 export interface TagSelectOptionProps {
@@ -15,11 +15,7 @@ export interface TagSelectOptionProps {
 const TagSelectOption: React.FC<TagSelectOptionProps> & {
   isTagSelectOption: boolean;
 } = ({ children, checked, onChange, value }) => (
-  <CheckableTag
-    checked={!!checked}
-    key={value}
-    onChange={(state) => onChange && onChange(value, state)}
-  >
+  <CheckableTag checked={!!checked} key={value} onChange={(state) => onChange?.(value, state)}>
     {children}
   </CheckableTag>
 );
@@ -58,9 +54,7 @@ const TagSelect: FC<TagSelectProps> & {
   });
 
   const isTagSelectOption = (node: TagSelectOptionElement) =>
-    node &&
-    node.type &&
-    (node.type.isTagSelectOption || node.type.displayName === 'TagSelectOption');
+    node?.type && (node.type.isTagSelectOption || node.type.displayName === 'TagSelectOption');
   const getAllTags = () => {
     const childrenArray = React.Children.toArray(children) as TagSelectOptionElement[];
     const checkedTags = childrenArray
@@ -94,7 +88,7 @@ const TagSelect: FC<TagSelectProps> & {
   return (
     <div className={cls} style={style}>
       {hideCheckAll ? null : (
-        <CheckableTag checked={checkedAll} key="tag-select-__all__" onChange={onSelectAll}>
+        <CheckableTag checked={checkedAll} key='tag-select-__all__' onChange={onSelectAll}>
           {selectAllText}
         </CheckableTag>
       )}

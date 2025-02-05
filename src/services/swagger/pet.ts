@@ -50,7 +50,7 @@ export async function updatePetWithForm(
   const { petId: param0, ...queryParams } = params;
   const formData = new FormData();
 
-  Object.keys(body).forEach((ele) => {
+  for (const ele of Object.keys(body)) {
     const item = (body as any)[ele];
 
     if (item !== undefined && item !== null) {
@@ -59,7 +59,7 @@ export async function updatePetWithForm(
         typeof item === 'object' && !(item instanceof File) ? JSON.stringify(item) : item,
       );
     }
-  });
+  }
 
   return request<any>(`/pet/${param0}`, {
     method: 'POST',
@@ -102,7 +102,7 @@ export async function uploadFile(
     formData.append('file', file);
   }
 
-  Object.keys(body).forEach((ele) => {
+  for (const ele of Object.keys(body)) {
     const item = (body as any)[ele];
 
     if (item !== undefined && item !== null) {
@@ -111,7 +111,7 @@ export async function uploadFile(
         typeof item === 'object' && !(item instanceof File) ? JSON.stringify(item) : item,
       );
     }
-  });
+  }
 
   return request<API.ApiResponse>(`/pet/${param0}/uploadImage`, {
     method: 'POST',

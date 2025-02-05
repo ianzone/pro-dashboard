@@ -1,13 +1,13 @@
 import { ClusterOutlined, ContactsOutlined, HomeOutlined, PlusOutlined } from '@ant-design/icons';
 import { GridContent } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
-import { Avatar, Card, Col, Divider, Input, InputRef, Row, Tag } from 'antd';
-import React, { useRef, useState } from 'react';
+import { Avatar, Card, Col, Divider, Input, type InputRef, Row, Tag } from 'antd';
+import { useRef, useState } from 'react';
 import useStyles from './Center.style';
 import Applications from './components/Applications';
 import Articles from './components/Articles';
 import Projects from './components/Projects';
-import type { CurrentUser, tabKeyType, TagType } from './data.d';
+import type { CurrentUser, TagType, tabKeyType } from './data.d';
 import { queryCurrent } from './service';
 const operationTabList = [
   {
@@ -98,8 +98,8 @@ const TagList: React.FC<{
       {inputVisible && (
         <Input
           ref={ref}
-          type="text"
-          size="small"
+          type='text'
+          size='small'
           style={{
             width: 78,
           }}
@@ -207,7 +207,7 @@ const Center: React.FC = () => {
             {!loading && currentUser && (
               <div>
                 <div className={styles.avatarHolder}>
-                  <img alt="" src={currentUser.avatar} />
+                  <img alt='' src={currentUser.avatar} />
                   <div className={styles.name}>{currentUser.name}</div>
                   <div>{currentUser?.signature}</div>
                 </div>
@@ -223,15 +223,14 @@ const Center: React.FC = () => {
                 <div className={styles.team}>
                   <div className={styles.teamTitle}>团队</div>
                   <Row gutter={36}>
-                    {currentUser.notice &&
-                      currentUser.notice.map((item) => (
-                        <Col key={item.id} lg={24} xl={12}>
-                          <a href={item.href}>
-                            <Avatar size="small" src={item.logo} />
-                            {item.member}
-                          </a>
-                        </Col>
-                      ))}
+                    {currentUser.notice?.map((item) => (
+                      <Col key={item.id} lg={24} xl={12}>
+                        <a href={item.href}>
+                          <Avatar size='small' src={item.logo} />
+                          {item.member}
+                        </a>
+                      </Col>
+                    ))}
                   </Row>
                 </div>
               </div>

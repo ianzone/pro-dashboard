@@ -10,7 +10,7 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import { Card, Col, message, Popover, Row } from 'antd';
+import { Card, Col, Popover, Row, message } from 'antd';
 import type { FC } from 'react';
 import { useState } from 'react';
 import { fakeSubmitForm } from './service';
@@ -92,12 +92,12 @@ const AdvancedForm: FC<Record<string, any>> = () => {
     return (
       <span className={styles.errorIcon}>
         <Popover
-          title="表单校验信息"
+          title='表单校验信息'
           content={errorList}
           overlayClassName={styles.errorPopover}
-          trigger="click"
+          trigger='click'
           getPopupContainer={(trigger: HTMLElement) => {
-            if (trigger && trigger.parentNode) {
+            if (trigger?.parentNode) {
               return trigger.parentNode as HTMLElement;
             }
             return trigger;
@@ -147,7 +147,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
       render: (_, record: TableFormDateType, index, action) => {
         return [
           <a
-            key="eidit"
+            key='eidit'
             onClick={() => {
               action?.startEditable(record.key);
             }}
@@ -160,7 +160,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
   ];
   return (
     <ProForm
-      layout="vertical"
+      layout='vertical'
       hideRequiredMark
       submitter={{
         render: (props, dom) => {
@@ -178,20 +178,20 @@ const AdvancedForm: FC<Record<string, any>> = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <PageContainer content="高级表单常见于一次性输入和提交大批量数据的场景。">
-        <Card title="仓库管理" className={styles.card} bordered={false}>
+      <PageContainer content='高级表单常见于一次性输入和提交大批量数据的场景。'>
+        <Card title='仓库管理' className={styles.card} bordered={false}>
           <Row gutter={16}>
             <Col lg={6} md={12} sm={24}>
               <ProFormText
                 label={fieldLabels.name}
-                name="name"
+                name='name'
                 rules={[
                   {
                     required: true,
                     message: '请输入仓库名称',
                   },
                 ]}
-                placeholder="请输入仓库名称"
+                placeholder='请输入仓库名称'
               />
             </Col>
             <Col
@@ -209,7 +209,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormText
                 label={fieldLabels.url}
-                name="url"
+                name='url'
                 rules={[
                   {
                     required: true,
@@ -223,7 +223,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                   addonBefore: 'http://',
                   addonAfter: '.com',
                 }}
-                placeholder="请输入"
+                placeholder='请输入'
               />
             </Col>
             <Col
@@ -241,7 +241,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormSelect
                 label={fieldLabels.owner}
-                name="owner"
+                name='owner'
                 rules={[
                   {
                     required: true,
@@ -258,7 +258,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                     value: 'mao',
                   },
                 ]}
-                placeholder="请选择管理员"
+                placeholder='请选择管理员'
               />
             </Col>
           </Row>
@@ -266,7 +266,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             <Col lg={6} md={12} sm={24}>
               <ProFormSelect
                 label={fieldLabels.approver}
-                name="approver"
+                name='approver'
                 rules={[
                   {
                     required: true,
@@ -283,7 +283,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                     value: 'mao',
                   },
                 ]}
-                placeholder="请选择审批员"
+                placeholder='请选择审批员'
               />
             </Col>
             <Col
@@ -301,7 +301,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormDateRangePicker
                 label={fieldLabels.dateRange}
-                name="dateRange"
+                name='dateRange'
                 fieldProps={{
                   style: {
                     width: '100%',
@@ -330,7 +330,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormSelect
                 label={fieldLabels.type}
-                name="type"
+                name='type'
                 rules={[
                   {
                     required: true,
@@ -347,17 +347,17 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                     value: 'public',
                   },
                 ]}
-                placeholder="请选择仓库类型"
+                placeholder='请选择仓库类型'
               />
             </Col>
           </Row>
         </Card>
-        <Card title="任务管理" className={styles.card} bordered={false}>
+        <Card title='任务管理' className={styles.card} bordered={false}>
           <Row gutter={16}>
             <Col lg={6} md={12} sm={24}>
               <ProFormText
                 label={fieldLabels.name2}
-                name="name2"
+                name='name2'
                 rules={[
                   {
                     required: true,
@@ -381,7 +381,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormText
                 label={fieldLabels.url2}
-                name="url2"
+                name='url2'
                 rules={[
                   {
                     required: true,
@@ -405,7 +405,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormSelect
                 label={fieldLabels.owner2}
-                name="owner2"
+                name='owner2'
                 rules={[
                   {
                     required: true,
@@ -429,7 +429,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             <Col lg={6} md={12} sm={24}>
               <ProFormSelect
                 label={fieldLabels.approver2}
-                name="approver2"
+                name='approver2'
                 rules={[
                   {
                     required: true,
@@ -446,7 +446,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                     value: 'mao',
                   },
                 ]}
-                placeholder="请选择审批员"
+                placeholder='请选择审批员'
               />
             </Col>
             <Col
@@ -464,14 +464,14 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormTimePicker
                 label={fieldLabels.dateRange2}
-                name="dateRange2"
+                name='dateRange2'
                 rules={[
                   {
                     required: true,
                     message: '请输入',
                   },
                 ]}
-                placeholder="提醒时间"
+                placeholder='提醒时间'
                 fieldProps={{
                   style: {
                     width: '100%',
@@ -494,7 +494,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
             >
               <ProFormSelect
                 label={fieldLabels.type2}
-                name="type2"
+                name='type2'
                 rules={[
                   {
                     required: true,
@@ -511,13 +511,13 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                     value: 'public',
                   },
                 ]}
-                placeholder="请选择仓库类型"
+                placeholder='请选择仓库类型'
               />
             </Col>
           </Row>
         </Card>
-        <Card title="成员管理" bordered={false}>
-          <ProForm.Item name="members">
+        <Card title='成员管理' bordered={false}>
+          <ProForm.Item name='members'>
             <EditableProTable<TableFormDateType>
               recordCreatorProps={{
                 record: () => {
@@ -527,7 +527,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
                 },
               }}
               columns={columns}
-              rowKey="key"
+              rowKey='key'
             />
           </ProForm.Item>
         </Card>

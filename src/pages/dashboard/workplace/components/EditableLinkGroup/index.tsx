@@ -1,6 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import React, { createElement } from 'react';
+import { createElement } from 'react';
 import useStyles from './index.style';
 export type EditableLink = {
   title: string;
@@ -28,7 +28,7 @@ const EditableLinkGroup: React.FC<EditableLinkGroupProps> = (props) => {
           link.title,
         ),
       )}
-      <Button size="small" type="primary" ghost onClick={onAdd}>
+      <Button size='small' type='primary' ghost onClick={onAdd}>
         <PlusOutlined /> 添加
       </Button>
     </div>

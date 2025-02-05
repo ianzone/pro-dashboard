@@ -7,7 +7,7 @@ import {
 import { useRequest } from '@umijs/max';
 import { Avatar, Card, Dropdown, List, Tooltip } from 'antd';
 import numeral from 'numeral';
-import React from 'react';
+
 import type { ListItemDataType } from '../../data.d';
 import { queryFakeList } from '../../service';
 import useStyles from './index.style';
@@ -61,7 +61,7 @@ const Applications: React.FC = () => {
   );
   return (
     <List<ListItemDataType>
-      rowKey="id"
+      rowKey='id'
       className={stylesApplications.filterCardList}
       grid={{
         gutter: 24,
@@ -79,16 +79,17 @@ const Applications: React.FC = () => {
             hoverable
             styles={{
               body: {
-              paddingBottom: 20,
-            }}}
+                paddingBottom: 20,
+              },
+            }}
             actions={[
-              <Tooltip key="download" title="下载">
+              <Tooltip key='download' title='下载'>
                 <DownloadOutlined />
               </Tooltip>,
-              <Tooltip title="编辑" key="edit">
+              <Tooltip title='编辑' key='edit'>
                 <EditOutlined />
               </Tooltip>,
-              <Tooltip title="分享" key="share">
+              <Tooltip title='分享' key='share'>
                 <ShareAltOutlined />
               </Tooltip>,
               <Dropdown
@@ -102,13 +103,13 @@ const Applications: React.FC = () => {
                     title: '2nd menu item',
                   },
                 ]}
-                key="ellipsis"
+                key='ellipsis'
               >
                 <EllipsisOutlined />
               </Dropdown>,
             ]}
           >
-            <Card.Meta avatar={<Avatar size="small" src={item.avatar} />} title={item.title} />
+            <Card.Meta avatar={<Avatar size='small' src={item.avatar} />} title={item.title} />
             <div>
               <CardInfo
                 activeUser={formatWan(item.activeUser)}

@@ -3,7 +3,7 @@ import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons
 import { history, useModel } from '@umijs/max';
 import { Spin } from 'antd';
 import { createStyles } from 'antd-style';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { flushSync } from 'react-dom';
 import HeaderDropdown from '../HeaderDropdown';
 
@@ -15,7 +15,7 @@ export type GlobalHeaderRightProps = {
 export const AvatarName = () => {
   const { initialState } = useModel('@@initialState');
   const { currentUser } = initialState || {};
-  return <span className="anticon">{currentUser?.name}</span>;
+  return <span className='anticon'>{currentUser?.name}</span>;
 };
 
 const useStyles = createStyles(({ token }) => {
@@ -76,7 +76,7 @@ export const AvatarDropdown: React.FC<GlobalHeaderRightProps> = ({ menu, childre
   const loading = (
     <span className={styles.action}>
       <Spin
-        size="small"
+        size='small'
         style={{
           marginLeft: 8,
           marginRight: 8,

@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import autoHeight from '../autoHeight';
+import autoHeight from '@/pages/dashboard/monitor';
+import type React from 'react';
+import { Component } from 'react';
 
 /* eslint no-return-assign: 0 */
 /* eslint no-mixed-operators: 0 */
@@ -16,7 +17,7 @@ class WaterWave extends Component<WaterWaveProps> {
   state = {
     radio: 1,
   };
-  timer: number = 0;
+  timer = 0;
   root: HTMLDivElement | undefined | null = null;
   node: HTMLCanvasElement | undefined | null = null;
   componentDidMount() {

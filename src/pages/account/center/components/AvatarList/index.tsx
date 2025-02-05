@@ -1,7 +1,8 @@
 import { Avatar, Tooltip } from 'antd';
 import classNames from 'classnames';
-import React from 'react';
+import { Children, cloneElement } from 'react';
 import useStyles from './index.style';
+
 export declare type SizeType = number | 'small' | 'default' | 'large';
 export type AvatarItemProps = {
   tips: React.ReactNode;
@@ -28,7 +29,7 @@ const Item: React.FC<AvatarItemProps> = ({ src, size, tips, onClick = () => {} }
     });
   const cls = avatarSizeToClassName(size);
   return (
-    <li className={cls} onClick={onClick}>
+    <li className={cls} onClick={onClick} onKeyDown={onClick}>
       {tips ? (
         <Tooltip title={tips}>
           <Avatar
@@ -49,18 +50,18 @@ const AvatarList: React.FC<AvatarListProps> & {
   Item: typeof Item;
 } = ({ children, size, maxLength = 5, excessItemsStyle, ...other }) => {
   const { styles } = useStyles();
-  const numOfChildren = React.Children.count(children);
+  const numOfChildren = Children.count(children);
   const numToShow = maxLength >= numOfChildren ? numOfChildren : maxLength;
-  const childrenArray = React.Children.toArray(children) as React.ReactElement<AvatarItemProps>[];
+  const childrenArray = Children.toArray(children) as React.ReactElement<AvatarItemProps>[];
   const childrenWithProps = childrenArray.slice(0, numToShow).map((child) =>
-    React.cloneElement(child, {
+    cloneElement(child, {
       size,
     }),
   );
   if (numToShow < numOfChildren) {
     const cls = avatarSizeToClassName(size);
     childrenWithProps.push(
-      <li key="exceed" className={cls}>
+      <li key='exceed' className={cls}>
         <Avatar size={size} style={excessItemsStyle}>{`+${numOfChildren - maxLength}`}</Avatar>
       </li>,
     );

@@ -1,7 +1,7 @@
 import { LikeOutlined, MessageFilled, StarTwoTone } from '@ant-design/icons';
 import { useRequest } from '@umijs/max';
 import { List, Tag } from 'antd';
-import React from 'react';
+
 import type { ListItemDataType } from '../../data.d';
 import { queryFakeList } from '../../service';
 import ArticleListContent from '../ArticleListContent';
@@ -25,18 +25,18 @@ const Articles: React.FC = () => {
   });
   return (
     <List<ListItemDataType>
-      size="large"
+      size='large'
       className={styles.articleList}
-      rowKey="id"
-      itemLayout="vertical"
+      rowKey='id'
+      itemLayout='vertical'
       dataSource={listData?.list || []}
       renderItem={(item) => (
         <List.Item
           key={item.id}
           actions={[
-            <IconText key="star" icon={<StarTwoTone />} text={item.star} />,
-            <IconText key="like" icon={<LikeOutlined />} text={item.like} />,
-            <IconText key="message" icon={<MessageFilled />} text={item.message} />,
+            <IconText key='star' icon={<StarTwoTone />} text={item.star} />,
+            <IconText key='like' icon={<LikeOutlined />} text={item.like} />,
+            <IconText key='message' icon={<MessageFilled />} text={item.message} />,
           ]}
         >
           <List.Item.Meta

@@ -1,6 +1,6 @@
 import { Column } from '@ant-design/plots';
 import { Card, Col, DatePicker, Row, Tabs } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker/generatePicker';
+import type { PickerProps } from 'antd/es/date-picker/generatePicker';
 import type dayjs from 'dayjs';
 import numeral from 'numeral';
 import type { DataItem } from '../data.d';
@@ -29,35 +29,31 @@ const SalesCard = ({
   loading,
   selectDate,
 }: {
-  rangePickerValue: RangePickerProps<dayjs.Dayjs>['value'];
+  rangePickerValue: PickerProps<dayjs.Dayjs>['value'];
   isActive: (key: TimeType) => string;
   salesData: DataItem[];
   loading: boolean;
-  handleRangePickerChange: RangePickerProps<dayjs.Dayjs>['onChange'];
+  handleRangePickerChange: PickerProps<dayjs.Dayjs>['onChange'];
   selectDate: (key: TimeType) => void;
 }) => {
   const { styles } = useStyles();
   return (
-    <Card
-      loading={loading}
-      bordered={false}
-      styles={{body:{padding: 0}}}
-    >
+    <Card loading={loading} bordered={false} styles={{ body: { padding: 0 } }}>
       <div className={styles.salesCard}>
         <Tabs
           tabBarExtraContent={
             <div className={styles.salesExtraWrap}>
               <div className={styles.salesExtra}>
-                <a className={isActive('today')} onClick={() => selectDate('today')}>
+                <a href='.' className={isActive('today')} onClick={() => selectDate('today')}>
                   今日
                 </a>
-                <a className={isActive('week')} onClick={() => selectDate('week')}>
+                <a href='.' className={isActive('week')} onClick={() => selectDate('week')}>
                   本周
                 </a>
-                <a className={isActive('month')} onClick={() => selectDate('month')}>
+                <a href='.' className={isActive('month')} onClick={() => selectDate('month')}>
                   本月
                 </a>
-                <a className={isActive('year')} onClick={() => selectDate('year')}>
+                <a href='.' className={isActive('year')} onClick={() => selectDate('year')}>
                   本年
                 </a>
               </div>
@@ -70,7 +66,7 @@ const SalesCard = ({
               />
             </div>
           }
-          size="large"
+          size='large'
           tabBarStyle={{
             marginBottom: 24,
           }}
@@ -85,8 +81,8 @@ const SalesCard = ({
                       <Column
                         height={300}
                         data={salesData}
-                        xField="x"
-                        yField="y"
+                        xField='x'
+                        yField='y'
                         paddingBottom={12}
                         axis={{
                           x: {
@@ -143,8 +139,8 @@ const SalesCard = ({
                       <Column
                         height={300}
                         data={salesData}
-                        xField="x"
-                        yField="y"
+                        xField='x'
+                        yField='y'
                         paddingBottom={12}
                         axis={{
                           x: {

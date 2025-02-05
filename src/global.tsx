@@ -11,9 +11,9 @@ const clearCache = () => {
     caches
       .keys()
       .then((keys) => {
-        keys.forEach((key) => {
+        for (const key of keys) {
           caches.delete(key);
-        });
+        }
       })
       .catch((e) => console.log(e));
   }
@@ -32,7 +32,7 @@ if (pwa) {
     const reloadSW = async () => {
       // Check if there is sw whose state is waiting in ServiceWorkerRegistration
       // https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration
-      const worker = e.detail && e.detail.waiting;
+      const worker = e.detail?.waiting;
       if (!worker) {
         return true;
       }
@@ -56,7 +56,7 @@ if (pwa) {
     const key = `open${Date.now()}`;
     const btn = (
       <Button
-        type="primary"
+        type='primary'
         onClick={() => {
           notification.destroy(key);
           reloadSW();
@@ -78,9 +78,9 @@ if (pwa) {
   const { serviceWorker } = navigator;
   if (serviceWorker.getRegistrations) {
     serviceWorker.getRegistrations().then((sws) => {
-      sws.forEach((sw) => {
+      for (const sw of sws) {
         sw.unregister();
-      });
+      }
     });
   }
   serviceWorker.getRegistration().then((sw) => {

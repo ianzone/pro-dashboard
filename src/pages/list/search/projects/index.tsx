@@ -27,7 +27,7 @@ const Projects: FC = () => {
   const list = data?.list || [];
   const cardList = list && (
     <List<ListItemDataType>
-      rowKey="id"
+      rowKey='id'
       loading={loading}
       grid={{
         gutter: 16,
@@ -43,7 +43,7 @@ const Projects: FC = () => {
         <List.Item>
           <Card className={styles.card} hoverable cover={<img alt={item.title} src={item.cover} />}>
             <Card.Meta
-              title={<a>{item.title}</a>}
+              title={<a href='.'>{item.title}</a>}
               description={
                 <Paragraph
                   ellipsis={{
@@ -57,7 +57,7 @@ const Projects: FC = () => {
             <div className={styles.cardItemContent}>
               <span>{dayjs(item.updatedAt).fromNow()}</span>
               <div className={styles.avatarList}>
-                <AvatarList size="small">
+                <AvatarList size='small'>
                   {item.members.map((member, i) => (
                     <AvatarList.Item
                       key={getKey(item.id, i)}
@@ -87,7 +87,7 @@ const Projects: FC = () => {
     <div className={styles.coverCardList}>
       <Card bordered={false}>
         <Form
-          layout="inline"
+          layout='inline'
           onValuesChange={(_, values) => {
             // 表单项变化时请求数据
             // 模拟查询表单生效
@@ -95,13 +95,13 @@ const Projects: FC = () => {
           }}
         >
           <StandardFormRow
-            title="所属类目"
+            title='所属类目'
             block
             style={{
               paddingBottom: 11,
             }}
           >
-            <FormItem name="category">
+            <FormItem name='category'>
               <TagSelect expandable>
                 {categoryOptions.map((category) => (
                   <TagSelect.Option value={category.value!} key={category.value}>
@@ -111,12 +111,12 @@ const Projects: FC = () => {
               </TagSelect>
             </FormItem>
           </StandardFormRow>
-          <StandardFormRow title="其它选项" grid last>
+          <StandardFormRow title='其它选项' grid last>
             <Row gutter={16}>
               <Col lg={8} md={10} sm={10} xs={24}>
-                <FormItem {...formItemLayout} label="作者" name="author">
+                <FormItem {...formItemLayout} label='作者' name='author'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{
                       maxWidth: 200,
                       width: '100%',
@@ -131,9 +131,9 @@ const Projects: FC = () => {
                 </FormItem>
               </Col>
               <Col lg={8} md={10} sm={10} xs={24}>
-                <FormItem {...formItemLayout} label="好评度" name="rate">
+                <FormItem {...formItemLayout} label='好评度' name='rate'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{
                       maxWidth: 200,
                       width: '100%',

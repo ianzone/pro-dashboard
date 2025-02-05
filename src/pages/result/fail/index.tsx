@@ -24,6 +24,7 @@ export default () => {
         />
         <span>您的账户已被冻结</span>
         <a
+          href='.'
           style={{
             marginLeft: 16,
           }}
@@ -41,6 +42,7 @@ export default () => {
         />
         <span>您的账户还不具备申请资格</span>
         <a
+          href='.'
           style={{
             marginLeft: 16,
           }}
@@ -55,11 +57,11 @@ export default () => {
     <GridContent>
       <Card bordered={false}>
         <Result
-          status="error"
-          title="提交失败"
-          subTitle="请核对并修改以下信息后，再重新提交。"
+          status='error'
+          title='提交失败'
+          subTitle='请核对并修改以下信息后，再重新提交。'
           extra={
-            <Button type="primary">
+            <Button type='primary'>
               <span>返回修改</span>
             </Button>
           }

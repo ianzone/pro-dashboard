@@ -2,7 +2,7 @@ import { Pie } from '@ant-design/plots';
 import { Card, Radio, Typography } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio';
 import numeral from 'numeral';
-import React from 'react';
+
 import type { DataItem } from '../data.d';
 import useStyles from '../style.style';
 const { Text } = Typography;
@@ -25,7 +25,7 @@ const ProportionSales = ({
       loading={loading}
       className={styles.salesCard}
       bordered={false}
-      title="销售额类别占比"
+      title='销售额类别占比'
       style={{
         height: '100%',
       }}
@@ -34,9 +34,9 @@ const ProportionSales = ({
           {dropdownGroup}
           <div className={styles.salesTypeRadio}>
             <Radio.Group value={salesType} onChange={handleChangeSalesType}>
-              <Radio.Button value="all">全部渠道</Radio.Button>
-              <Radio.Button value="online">线上</Radio.Button>
-              <Radio.Button value="stores">门店</Radio.Button>
+              <Radio.Button value='all'>全部渠道</Radio.Button>
+              <Radio.Button value='online'>线上</Radio.Button>
+              <Radio.Button value='stores'>门店</Radio.Button>
             </Radio.Group>
           </div>
         </div>
@@ -48,8 +48,8 @@ const ProportionSales = ({
           height={340}
           radius={0.8}
           innerRadius={0.5}
-          angleField="y"
-          colorField="x"
+          angleField='y'
+          colorField='x'
           data={salesPieData as any}
           legend={false}
           label={{
