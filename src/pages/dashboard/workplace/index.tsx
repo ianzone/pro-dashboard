@@ -56,7 +56,7 @@ const PageHeaderContent: FC<{
   return (
     <div className={styles.pageHeaderContent}>
       <div className={styles.avatar}>
-        <Avatar size="large" src={currentUser.avatar} />
+        <Avatar size='large' src={currentUser.avatar} />
       </div>
       <div className={styles.content}>
         <div className={styles.contentTitle}>
@@ -76,13 +76,13 @@ const ExtraContent: FC<Record<string, any>> = () => {
   return (
     <div className={styles.extraContent}>
       <div className={styles.statItem}>
-        <Statistic title="项目数" value={56} />
+        <Statistic title='项目数' value={56} />
       </div>
       <div className={styles.statItem}>
-        <Statistic title="团队内排名" value={8} suffix="/ 24" />
+        <Statistic title='团队内排名' value={8} suffix='/ 24' />
       </div>
       <div className={styles.statItem}>
-        <Statistic title="项目访问" value={2223} />
+        <Statistic title='项目访问' value={2223} />
       </div>
     </div>
   );
@@ -110,7 +110,9 @@ const Workplace: FC = () => {
           avatar={<Avatar src={item.user.avatar} />}
           title={
             <span>
-              <a className={styles.username}>{item.user.name}</a>
+              <a href='.' className={styles.username}>
+                {item.user.name}
+              </a>
               &nbsp;
               <span className={styles.event}>{events}</span>
             </span>
@@ -149,26 +151,19 @@ const Workplace: FC = () => {
             style={{
               marginBottom: 24,
             }}
-            title="进行中的项目"
+            title='进行中的项目'
             bordered={false}
-            extra={<Link to="/">全部项目</Link>}
+            extra={<Link to='/'>全部项目</Link>}
             loading={projectLoading}
-            bodyStyle={{
-              padding: 0,
-            }}
+            styles={{ body: { padding: 0 } }}
           >
             {projectNotice.map((item) => (
               <Card.Grid className={styles.projectGrid} key={item.id}>
-                <Card
-                  bodyStyle={{
-                    padding: 0,
-                  }}
-                  bordered={false}
-                >
+                <Card styles={{ body: { padding: 0 } }} bordered={false}>
                   <Card.Meta
                     title={
                       <div className={styles.cardTitle}>
-                        <Avatar size="small" src={item.logo} />
+                        <Avatar size='small' src={item.logo} />
                         <Link to={item.href || '/'}>{item.title}</Link>
                       </div>
                     }
@@ -187,12 +182,10 @@ const Workplace: FC = () => {
             ))}
           </Card>
           <Card
-            bodyStyle={{
-              padding: 0,
-            }}
+            styles={{ body: { padding: 0 } }}
             bordered={false}
             className={styles.activeCard}
-            title="动态"
+            title='动态'
             loading={activitiesLoading}
           >
             <List<ActivitiesType>
@@ -200,7 +193,7 @@ const Workplace: FC = () => {
               renderItem={(item) => renderActivities(item)}
               dataSource={activities}
               className={styles.activitiesList}
-              size="large"
+              size='large'
             />
           </Card>
         </Col>
@@ -209,11 +202,9 @@ const Workplace: FC = () => {
             style={{
               marginBottom: 24,
             }}
-            title="快速开始 / 便捷导航"
+            title='快速开始 / 便捷导航'
             bordered={false}
-            bodyStyle={{
-              padding: 0,
-            }}
+            styles={{ body: { padding: 0 } }}
           >
             <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
           </Card>
@@ -222,17 +213,17 @@ const Workplace: FC = () => {
               marginBottom: 24,
             }}
             bordered={false}
-            title="XX 指数"
+            title='XX 指数'
             loading={data?.radarData?.length === 0}
           >
             <div>
               <Radar
                 height={343}
                 data={data?.radarData || []}
-                xField="label"
-                colorField="name"
-                yField="value"
-                shapeField="smooth"
+                xField='label'
+                colorField='name'
+                yField='value'
+                shapeField='smooth'
                 area={{
                   style: {
                     fillOpacity: 0.4,
@@ -253,12 +244,14 @@ const Workplace: FC = () => {
             </div>
           </Card>
           <Card
-            bodyStyle={{
-              paddingTop: 12,
-              paddingBottom: 12,
+            styles={{
+              body: {
+                paddingTop: 12,
+                paddingBottom: 12,
+              },
             }}
             bordered={false}
-            title="团队"
+            title='团队'
             loading={projectLoading}
           >
             <div className={styles.members}>
@@ -266,8 +259,8 @@ const Workplace: FC = () => {
                 {projectNotice.map((item) => {
                   return (
                     <Col span={12} key={`members-item-${item.id}`}>
-                      <a>
-                        <Avatar src={item.logo} size="small" />
+                      <a href='.'>
+                        <Avatar src={item.logo} size='small' />
                         <span className={styles.member}>{item.member.substring(0, 3)}</span>
                       </a>
                     </Col>

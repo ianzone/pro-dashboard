@@ -1,9 +1,10 @@
 import { LikeOutlined, LoadingOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { useRequest } from '@umijs/max';
 import { Button, Card, Col, Form, List, Row, Select, Tag } from 'antd';
-import { DefaultOptionType } from 'antd/es/select';
+import type { DefaultOptionType } from 'antd/es/select';
 import type { FC } from 'react';
-import React, { useMemo } from 'react';
+import type React from 'react';
+import { useMemo } from 'react';
 import { categoryOptions } from '../../mock';
 import ArticleListContent from './components/ArticleListContent';
 import StandardFormRow from './components/StandardFormRow';
@@ -129,15 +130,15 @@ const Articles: FC = () => {
     <>
       <Card bordered={false}>
         <Form
-          layout="inline"
+          layout='inline'
           form={form}
           initialValues={{
             owner: ['wjh', 'zxx'],
           }}
           onValuesChange={reload}
         >
-          <StandardFormRow title="所属类目" block style={{ paddingBottom: 11 }}>
-            <FormItem name="category">
+          <StandardFormRow title='所属类目' block style={{ paddingBottom: 11 }}>
+            <FormItem name='category'>
               <TagSelect expandable>
                 {categoryOptions.map((category) => (
                   <TagSelect.Option value={category.value!} key={category.value}>
@@ -147,11 +148,11 @@ const Articles: FC = () => {
               </TagSelect>
             </FormItem>
           </StandardFormRow>
-          <StandardFormRow title="owner" grid>
-            <FormItem name="owner" noStyle>
+          <StandardFormRow title='owner' grid>
+            <FormItem name='owner' noStyle>
               <Select
-                mode="multiple"
-                placeholder="选择 owner"
+                mode='multiple'
+                placeholder='选择 owner'
                 style={{ minWidth: '6rem' }}
                 options={ownerOptions}
               />
@@ -160,12 +161,12 @@ const Articles: FC = () => {
               只看自己的
             </a>
           </StandardFormRow>
-          <StandardFormRow title="其它选项" grid last>
+          <StandardFormRow title='其它选项' grid last>
             <Row gutter={16}>
               <Col xl={8} lg={10} md={12} sm={24} xs={24}>
-                <FormItem {...formItemLayout} label="活跃用户" name="user">
+                <FormItem {...formItemLayout} label='活跃用户' name='user'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{ maxWidth: 200, width: '100%' }}
                     options={[
                       {
@@ -177,9 +178,9 @@ const Articles: FC = () => {
                 </FormItem>
               </Col>
               <Col xl={8} lg={10} md={12} sm={24} xs={24}>
-                <FormItem {...formItemLayout} label="好评度" name="rate">
+                <FormItem {...formItemLayout} label='好评度' name='rate'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{ maxWidth: 200, width: '100%' }}
                     options={[
                       {
@@ -197,22 +198,26 @@ const Articles: FC = () => {
       <Card
         style={{ marginTop: 24 }}
         bordered={false}
-        bodyStyle={{ padding: '8px 32px 32px 32px' }}
+        styles={{
+          body: {
+            padding: '8px 32px 32px 32px',
+          },
+        }}
       >
         <List<ListItemDataType>
-          size="large"
+          size='large'
           loading={loading}
-          rowKey="id"
-          itemLayout="vertical"
+          rowKey='id'
+          itemLayout='vertical'
           loadMore={loadMoreDom}
           dataSource={list}
           renderItem={(item) => (
             <List.Item
               key={item.id}
               actions={[
-                <IconText key="star" type="star-o" text={item.star} />,
-                <IconText key="like" type="like-o" text={item.like} />,
-                <IconText key="message" type="message" text={item.message} />,
+                <IconText key='star' type='star-o' text={item.star} />,
+                <IconText key='like' type='like-o' text={item.like} />,
+                <IconText key='message' type='message' text={item.message} />,
               ]}
               extra={<div className={styles.listItemExtra} />}
             >

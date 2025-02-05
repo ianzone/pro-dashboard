@@ -38,6 +38,7 @@
         "@umijs/fabric": "^2.14.1",
         "@umijs/lint": "^4.1.0",
         "@umijs/max": "^4.1.0",
+        "biome-extends": "^1.1.0",
         "cross-env": "^7.0.3",
         "express": "^4.18.2",
         "gh-pages": "^3.2.3",
@@ -1326,6 +1327,8 @@
     "big.js": ["big.js@5.2.2", "https://registry.npmmirror.com/big.js/-/big.js-5.2.2.tgz", {}, "sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ=="],
 
     "binary-extensions": ["binary-extensions@2.3.0", "https://registry.npmmirror.com/binary-extensions/-/binary-extensions-2.3.0.tgz", {}, "sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw=="],
+
+    "biome-extends": ["biome-extends@1.1.0", "https://registry.npmmirror.com/biome-extends/-/biome-extends-1.1.0.tgz", { "peerDependencies": { "@biomejs/biome": "^1.9.4" } }, "sha512-ASf6fHpJD0vLXUH+ueogGwxIkGZOT1vXybSnVOiyEn0O4V7+z/VSiR6FHJyTSfrpw+fKpU+DeQBMhvIUBOlXrA=="],
 
     "bl": ["bl@4.1.0", "https://registry.npmmirror.com/bl/-/bl-4.1.0.tgz", { "dependencies": { "buffer": "^5.5.0", "inherits": "^2.0.4", "readable-stream": "^3.4.0" } }, "sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w=="],
 

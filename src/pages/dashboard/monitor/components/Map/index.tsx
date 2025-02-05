@@ -3,7 +3,7 @@ import { HeatmapLayer, MapboxScene, PointLayer } from '@antv/l7-react';
 import * as React from 'react';
 
 const colors = ['#eff3ff', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#084594'];
-export default class Map extends React.Component {
+export default class MapCmp extends React.Component {
   state = {
     data: null,
     grid: null,
@@ -46,7 +46,7 @@ export default class Map extends React.Component {
       >
         {grid && (
           <HeatmapLayer
-            key="1"
+            key='1'
             source={{
               data: grid,
               transforms: [
@@ -72,7 +72,7 @@ export default class Map extends React.Component {
         )}
         {data && [
           <PointLayer
-            key="2"
+            key='2'
             options={{
               autoFit: true,
             }}
@@ -112,7 +112,7 @@ export default class Map extends React.Component {
             }}
           />,
           <PointLayer
-            key="5"
+            key='5'
             source={{
               data,
             }}

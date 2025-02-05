@@ -8,7 +8,7 @@ import { useRequest } from '@umijs/max';
 import { Avatar, Card, Col, Dropdown, Form, List, Row, Select, Tooltip } from 'antd';
 import numeral from 'numeral';
 import type { FC } from 'react';
-import React from 'react';
+import type React from 'react';
 import { categoryOptions } from '../../mock';
 import StandardFormRow from './components/StandardFormRow';
 import TagSelect from './components/TagSelect';
@@ -87,13 +87,13 @@ export const Applications: FC<Record<string, any>> = () => {
           }}
         >
           <StandardFormRow
-            title="所属类目"
+            title='所属类目'
             block
             style={{
               paddingBottom: 11,
             }}
           >
-            <Form.Item name="category">
+            <Form.Item name='category'>
               <TagSelect expandable>
                 {categoryOptions.map((category) => (
                   <TagSelect.Option value={category.value!} key={category.value}>
@@ -103,12 +103,12 @@ export const Applications: FC<Record<string, any>> = () => {
               </TagSelect>
             </Form.Item>
           </StandardFormRow>
-          <StandardFormRow title="其它选项" grid last>
+          <StandardFormRow title='其它选项' grid last>
             <Row gutter={16}>
               <Col lg={8} md={10} sm={10} xs={24}>
-                <Form.Item {...formItemLayout} name="author" label="作者">
+                <Form.Item {...formItemLayout} name='author' label='作者'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{
                       maxWidth: 200,
                       width: '100%',
@@ -123,9 +123,9 @@ export const Applications: FC<Record<string, any>> = () => {
                 </Form.Item>
               </Col>
               <Col lg={8} md={10} sm={10} xs={24}>
-                <Form.Item {...formItemLayout} name="rate" label="好评度">
+                <Form.Item {...formItemLayout} name='rate' label='好评度'>
                   <Select
-                    placeholder="不限"
+                    placeholder='不限'
                     style={{
                       maxWidth: 200,
                       width: '100%',
@@ -149,7 +149,7 @@ export const Applications: FC<Record<string, any>> = () => {
       </Card>
       <br />
       <List<ListItemDataType>
-        rowKey="id"
+        rowKey='id'
         grid={{
           gutter: 16,
           xs: 1,
@@ -165,21 +165,23 @@ export const Applications: FC<Record<string, any>> = () => {
           <List.Item key={item.id}>
             <Card
               hoverable
-              bodyStyle={{
-                paddingBottom: 20,
+              styles={{
+                body: {
+                  paddingBottom: 20,
+                },
               }}
               actions={[
-                <Tooltip key="download" title="下载">
+                <Tooltip key='download' title='下载'>
                   <DownloadOutlined />
                 </Tooltip>,
-                <Tooltip key="edit" title="编辑">
+                <Tooltip key='edit' title='编辑'>
                   <EditOutlined />
                 </Tooltip>,
-                <Tooltip title="分享" key="share">
+                <Tooltip title='分享' key='share'>
                   <ShareAltOutlined />
                 </Tooltip>,
                 <Dropdown
-                  key="ellipsis"
+                  key='ellipsis'
                   menu={{
                     items: [
                       {
@@ -197,7 +199,7 @@ export const Applications: FC<Record<string, any>> = () => {
                 </Dropdown>,
               ]}
             >
-              <Card.Meta avatar={<Avatar size="small" src={item.avatar} />} title={item.title} />
+              <Card.Meta avatar={<Avatar size='small' src={item.avatar} />} title={item.title} />
               <div>
                 <CardInfo
                   activeUser={formatWan(item.activeUser)}

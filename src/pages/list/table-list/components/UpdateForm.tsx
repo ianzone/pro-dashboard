@@ -7,7 +7,7 @@ import {
   StepsForm,
 } from '@ant-design/pro-components';
 import { Modal } from 'antd';
-import React from 'react';
+import type React from 'react';
 import type { TableListItem } from '../data';
 
 export type FormValueType = {
@@ -35,11 +35,13 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
         return (
           <Modal
             width={640}
-            bodyStyle={{
-              padding: '32px 40px 48px',
+            styles={{
+              body: {
+                padding: '32px 40px 48px',
+              },
             }}
             destroyOnClose
-            title="规则配置"
+            title='规则配置'
             open={props.updateModalVisible}
             footer={submitter}
             onCancel={() => {
@@ -57,12 +59,12 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           name: props.values.name,
           desc: props.values.desc,
         }}
-        title="基本信息"
+        title='基本信息'
       >
         <ProFormText
-          name="name"
-          label="规则名称"
-          width="md"
+          name='name'
+          label='规则名称'
+          width='md'
           rules={[
             {
               required: true,
@@ -71,10 +73,10 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           ]}
         />
         <ProFormTextArea
-          name="desc"
-          width="md"
-          label="规则描述"
-          placeholder="请输入至少五个字符"
+          name='desc'
+          width='md'
+          label='规则描述'
+          placeholder='请输入至少五个字符'
           rules={[
             {
               required: true,
@@ -89,29 +91,29 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           target: '0',
           template: '0',
         }}
-        title="配置规则属性"
+        title='配置规则属性'
       >
         <ProFormSelect
-          name="target"
-          width="md"
-          label="监控对象"
+          name='target'
+          width='md'
+          label='监控对象'
           valueEnum={{
             0: '表一',
             1: '表二',
           }}
         />
         <ProFormSelect
-          name="template"
-          width="md"
-          label="规则模板"
+          name='template'
+          width='md'
+          label='规则模板'
           valueEnum={{
             0: '规则模板一',
             1: '规则模板二',
           }}
         />
         <ProFormRadio.Group
-          name="type"
-          label="规则类型"
+          name='type'
+          label='规则类型'
           options={[
             {
               value: '0',
@@ -129,12 +131,12 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           type: '1',
           frequency: 'month',
         }}
-        title="设定调度周期"
+        title='设定调度周期'
       >
         <ProFormDateTimePicker
-          name="time"
-          width="md"
-          label="开始时间"
+          name='time'
+          width='md'
+          label='开始时间'
           rules={[
             {
               required: true,
@@ -143,9 +145,9 @@ const UpdateForm: React.FC<UpdateFormProps> = (props) => {
           ]}
         />
         <ProFormSelect
-          name="frequency"
-          label="监控对象"
-          width="md"
+          name='frequency'
+          label='监控对象'
+          width='md'
           valueEnum={{
             month: '月',
             week: '周',

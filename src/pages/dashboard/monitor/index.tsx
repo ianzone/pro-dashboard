@@ -5,7 +5,7 @@ import { Card, Col, Progress, Row, Statistic } from 'antd';
 import numeral from 'numeral';
 import type { FC } from 'react';
 import ActiveChart from './components/ActiveChart';
-import Map from './components/Map';
+import MapCmp from './components/Map';
 import { queryTags } from './service';
 import useStyles from './style.style';
 
@@ -56,7 +56,7 @@ const Monitor: FC = () => {
                 </Col>
               </Row>
               <div className={styles.mapChart}>
-                <Map />
+                <MapCmp />
               </div>
             </Card>
           </Col>
@@ -142,8 +142,10 @@ const Monitor: FC = () => {
               title='热门搜索'
               loading={loading}
               bordered={false}
-              bodyStyle={{
-                overflow: 'hidden',
+              styles={{
+                body: {
+                  overflow: 'hidden',
+                },
               }}
             >
               <WordCloud
@@ -166,9 +168,11 @@ const Monitor: FC = () => {
           >
             <Card
               title='资源剩余'
-              bodyStyle={{
-                textAlign: 'center',
-                fontSize: 0,
+              styles={{
+                body: {
+                  textAlign: 'center',
+                  fontSize: 0,
+                },
               }}
               bordered={false}
             >
