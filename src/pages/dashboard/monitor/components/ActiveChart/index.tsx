@@ -41,8 +41,8 @@ const ActiveChart = () => {
   }, []);
 
   return (
-    <div className={styles.activeChart}>
-      <Statistic title="目标评估" value="有望达到预期" />
+    <div className={styles.activeChart} data-testid={'目标评估'}>
+      <Statistic title='目标评估' value='有望达到预期' />
       <div
         style={{
           marginTop: 32,
@@ -50,9 +50,9 @@ const ActiveChart = () => {
       >
         <Area
           padding={[0, 0, 0, 0]}
-          xField="x"
+          xField='x'
           axis={false}
-          yField="y"
+          yField='y'
           height={84}
           style={{ fill: 'linear-gradient(-90deg, white 0%, #6294FA 100%)', fillOpacity: 0.6 }}
           data={activeData}

@@ -49,7 +49,12 @@ const Monitor: FC = () => {
                   <Statistic title='销售目标完成率' value='92%' />
                 </Col>
                 <Col md={6} sm={12} xs={24}>
-                  <Countdown title='活动剩余时间' value={deadline} format='HH:mm:ss:SSS' />
+                  <Countdown
+                    data-testid='活动剩余时间'
+                    title='活动剩余时间'
+                    value={deadline}
+                    format='HH:mm:ss:SSS'
+                  />
                 </Col>
                 <Col md={6} sm={12} xs={24}>
                   <Statistic title='每秒交易总额' suffix='元' value={numeral(234).format('0,0')} />
@@ -139,6 +144,7 @@ const Monitor: FC = () => {
             }}
           >
             <Card
+              data-testid={'热门搜索'}
               title='热门搜索'
               loading={loading}
               bordered={false}
@@ -167,6 +173,7 @@ const Monitor: FC = () => {
             }}
           >
             <Card
+              data-testid={'资源剩余'}
               title='资源剩余'
               styles={{
                 body: {
