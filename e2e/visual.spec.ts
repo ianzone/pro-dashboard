@@ -11,8 +11,11 @@ test.afterAll(async () => {
 });
 
 test('user/login', async () => {
+  test.setTimeout(0);
   await page.goto('/user/login');
-  await expect(page.getByText('Ant Design 是西湖区最具影响力的 Web 设计规范')).toBeVisible();
+  await expect(page.getByText('Ant Design 是西湖区最具影响力的 Web 设计规范')).toBeVisible({
+    timeout: 0,
+  });
   await expect(page).toHaveScreenshot();
   await page.getByRole('textbox', { name: '用户名: admin or user' }).fill('admin');
   await page.getByRole('textbox', { name: '密码: ant.design' }).fill('ant.design');

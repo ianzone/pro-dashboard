@@ -1,6 +1,7 @@
 import { Area } from '@ant-design/plots';
 import { Statistic } from 'antd';
 import { useEffect, useRef, useState } from 'react';
+import { mockW } from '../../../../../utils';
 import useStyles from './index.style';
 function fixedZero(val: number) {
   return val * 1 < 10 ? `0${val}` : val;
@@ -10,7 +11,7 @@ function getActiveData() {
   for (let i = 0; i < 24; i += 1) {
     activeData.push({
       x: `${fixedZero(i)}:00`,
-      y: Math.floor(Math.random() * 200) + i * 50,
+      y: mockW(10) * 2 + i * 50,
     });
   }
   return activeData;

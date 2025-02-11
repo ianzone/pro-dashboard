@@ -1,6 +1,7 @@
+import type { AnalysisData, DataItem, RadarData } from '@/pages/dashboard/analysis/data';
 import dayjs from 'dayjs';
 import type { Request, Response } from 'express';
-import type { AnalysisData, DataItem, RadarData } from './data';
+import { mock, mockW } from '../src/utils';
 
 // mock data
 const visitData: DataItem[] = [];
@@ -27,7 +28,7 @@ const salesData = [];
 for (let i = 0; i < 12; i += 1) {
   salesData.push({
     x: `${i + 1}月`,
-    y: Math.floor(Math.random() * 1000) + 200,
+    y: mockW(100) + 200,
   });
 }
 const searchData = [];
@@ -35,9 +36,9 @@ for (let i = 0; i < 50; i += 1) {
   searchData.push({
     index: i + 1,
     keyword: `搜索关键词-${i}`,
-    count: Math.floor(Math.random() * 1000),
-    range: Math.floor(Math.random() * 100),
-    status: Math.floor((Math.random() * 10) % 2),
+    count: mockW(100),
+    range: mockW(10),
+    status: mock.number.int(10) % 2,
   });
 }
 const salesTypeData = [
@@ -121,7 +122,7 @@ const offlineData = [];
 for (let i = 0; i < 10; i += 1) {
   offlineData.push({
     name: `Stores ${i}`,
-    cvr: Math.ceil(Math.random() * 9) / 10,
+    cvr: mockW(0.1),
   });
 }
 const offlineChartData = [];
@@ -130,12 +131,12 @@ for (let i = 0; i < 20; i += 1) {
   offlineChartData.push({
     date,
     type: '客流量',
-    value: Math.floor(Math.random() * 100) + 10,
+    value: mockW(10) + 10,
   });
   offlineChartData.push({
     date,
     type: '支付笔数',
-    value: Math.floor(Math.random() * 100) + 10,
+    value: mockW(10) + 10,
   });
 }
 
@@ -174,8 +175,8 @@ const radarTitleMap = {
   contribute: '贡献',
   hot: '热度',
 };
-radarOriginData.forEach((item) => {
-  Object.keys(item).forEach((key) => {
+for (const item of radarOriginData) {
+  for (const key of Object.keys(item)) {
     if (key !== 'name') {
       radarData.push({
         name: item.name,
@@ -183,8 +184,8 @@ radarOriginData.forEach((item) => {
         value: item[key as 'ref'],
       });
     }
-  });
-});
+  }
+}
 
 const getFakeChartData: AnalysisData = {
   visitData,

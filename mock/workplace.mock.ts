@@ -1,14 +1,11 @@
-import { DataItem } from '@antv/g2plot/esm/interface/config';
 import dayjs from 'dayjs';
 import type { Request, Response } from 'express';
-
-export type SearchDataType = {
-  index: number;
-  keyword: string;
-  count: number;
-  range: number;
-  status: number;
-};
+import type {
+  DataItem,
+  OfflineDataType,
+  SearchDataType,
+} from '../src/pages/dashboard/workplace/data';
+import { mock, mockW } from '../src/utils';
 
 // mock data
 const visitData: DataItem[] = [];
@@ -35,7 +32,7 @@ const salesData: DataItem[] = [];
 for (let i = 0; i < 12; i += 1) {
   salesData.push({
     x: `${i + 1}月`,
-    y: Math.floor(Math.random() * 1000) + 200,
+    y: mockW(100) + 200,
   });
 }
 const searchData: SearchDataType[] = [];
@@ -43,9 +40,9 @@ for (let i = 0; i < 50; i += 1) {
   searchData.push({
     index: i + 1,
     keyword: `搜索关键词-${i}`,
-    count: Math.floor(Math.random() * 1000),
-    range: Math.floor(Math.random() * 100),
-    status: Math.floor((Math.random() * 10) % 2),
+    count: mockW(100),
+    range: mockW(10),
+    status: mock.number.int(10) % 2,
   });
 }
 const salesTypeData = [
@@ -129,15 +126,15 @@ const offlineData: OfflineDataType[] = [];
 for (let i = 0; i < 10; i += 1) {
   offlineData.push({
     name: `Stores ${i}`,
-    cvr: Math.ceil(Math.random() * 9) / 10,
+    cvr: mockW(0.1),
   });
 }
 const offlineChartData: DataItem[] = [];
 for (let i = 0; i < 20; i += 1) {
   offlineChartData.push({
     x: new Date().getTime() + 1000 * 60 * 30 * i,
-    y1: Math.floor(Math.random() * 100) + 10,
-    y2: Math.floor(Math.random() * 100) + 10,
+    y1: mockW(10) + 10,
+    y2: mockW(10) + 10,
   });
 }
 
@@ -382,8 +379,8 @@ const radarTitleMap = {
   contribute: '贡献',
   hot: '热度',
 };
-radarOriginData.forEach((item) => {
-  Object.keys(item).forEach((key) => {
+for (const item of radarOriginData) {
+  for (const key of Object.keys(item)) {
     if (key !== 'name') {
       radarData.push({
         name: item.name,
@@ -391,8 +388,8 @@ radarOriginData.forEach((item) => {
         value: item[key as 'ref'],
       });
     }
-  });
-});
+  }
+}
 
 const getChartData = (_: Request, res: Response) => {
   res.json({
