@@ -18,7 +18,7 @@ export default defineConfig({
   expect: {
     timeout: 10_000,
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.02,
+      maxDiffPixelRatio: 0.01,
     },
   },
   /* Run tests in files in parallel */
@@ -35,15 +35,29 @@ export default defineConfig({
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    screenshot: 'on-first-failure',
     locale: 'zh-CN',
   },
 
   /* Configure projects for major browsers */
   projects: [
+    // {
+    //   name: 'login',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     channel: 'chromium',
+    //   },
+    //   testMatch: 'login.spec.ts',
+    // },
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], channel: 'chromium' },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chromium',
+        // storageState: 'e2e/login.json',
+      },
+      // dependencies: ['login'],
+      testIgnore: 'login.spec.ts',
     },
 
     // {

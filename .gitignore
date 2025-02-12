@@ -135,5 +135,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-.umi
+.umi*
 e2e-out

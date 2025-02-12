@@ -2,7 +2,6 @@ import { Gauge, Liquid, WordCloud } from '@ant-design/plots';
 import { GridContent } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
 import { Card, Col, Progress, Row, Statistic } from 'antd';
-import numeral from 'numeral';
 import type { FC } from 'react';
 import ActiveChart from './components/ActiveChart';
 import MapCmp from './components/Map';
@@ -39,11 +38,7 @@ const Monitor: FC = () => {
             <Card title='活动实时交易情况' bordered={false}>
               <Row>
                 <Col md={6} sm={12} xs={24}>
-                  <Statistic
-                    title='今日交易总额'
-                    suffix='元'
-                    value={numeral(124543233).format('0,0')}
-                  />
+                  <Statistic title='今日交易总额' suffix='元' value={124543233} />
                 </Col>
                 <Col md={6} sm={12} xs={24}>
                   <Statistic title='销售目标完成率' value='92%' />
@@ -57,7 +52,7 @@ const Monitor: FC = () => {
                   />
                 </Col>
                 <Col md={6} sm={12} xs={24}>
-                  <Statistic title='每秒交易总额' suffix='元' value={numeral(234).format('0,0')} />
+                  <Statistic title='每秒交易总额' suffix='元' value={234} />
                 </Col>
               </Row>
               <div className={styles.mapChart}>

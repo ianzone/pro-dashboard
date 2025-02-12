@@ -2,7 +2,6 @@ import { Column } from '@ant-design/plots';
 import { Card, Col, DatePicker, Row, Tabs } from 'antd';
 import type { PickerProps } from 'antd/es/date-picker/generatePicker';
 import type dayjs from 'dayjs';
-import numeral from 'numeral';
 import type { DataItem } from '../data.d';
 import useStyles from '../style.style';
 
@@ -120,7 +119,7 @@ const SalesCard = ({
                             <span className={styles.rankingItemTitle} title={item.title}>
                               {item.title}
                             </span>
-                            <span>{numeral(item.total).format('0,0')}</span>
+                            <span>{item.total}</span>
                           </li>
                         ))}
                       </ul>
@@ -176,7 +175,7 @@ const SalesCard = ({
                             <span className={styles.rankingItemTitle} title={item.title}>
                               {item.title}
                             </span>
-                            <span>{numeral(item.total).format('0,0')}</span>
+                            <span>{item.total}</span>
                           </li>
                         ))}
                       </ul>

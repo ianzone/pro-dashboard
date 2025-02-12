@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import { useRequest } from '@umijs/max';
 import { Avatar, Card, Dropdown, List, Tooltip } from 'antd';
-import numeral from 'numeral';
 
 import type { ListItemDataType } from '../../data.d';
 import { queryFakeList } from '../../service';
@@ -111,10 +110,7 @@ const Applications: React.FC = () => {
           >
             <Card.Meta avatar={<Avatar size='small' src={item.avatar} />} title={item.title} />
             <div>
-              <CardInfo
-                activeUser={formatWan(item.activeUser)}
-                newUser={numeral(item.newUser).format('0,0')}
-              />
+              <CardInfo activeUser={formatWan(item.activeUser)} newUser={item.newUser} />
             </div>
           </Card>
         </List.Item>

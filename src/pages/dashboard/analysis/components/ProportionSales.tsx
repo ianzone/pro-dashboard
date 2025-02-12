@@ -1,7 +1,6 @@
 import { Pie } from '@ant-design/plots';
 import { Card, Radio, Typography } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio';
-import numeral from 'numeral';
 
 import type { DataItem } from '../data.d';
 import useStyles from '../style.style';
@@ -55,7 +54,7 @@ const ProportionSales = ({
           label={{
             position: 'spider',
             text: (item: { x: number; y: number }) => {
-              return `${item.x}: ${numeral(item.y).format('0,0')}`;
+              return `${item.x}: ${item.y}`;
             },
           }}
         />

@@ -10,9 +10,5 @@ declare module '*.jpeg';
 declare module '*.gif';
 declare module '*.bmp';
 declare module '*.tiff';
-declare module 'omit.js';
-declare module 'numeral';
-declare module 'mockjs';
-declare module 'react-fittext';
 
 declare const REACT_APP_ENV: 'test' | 'dev' | 'pre' | false;

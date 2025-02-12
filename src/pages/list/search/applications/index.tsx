@@ -6,7 +6,6 @@ import {
 } from '@ant-design/icons';
 import { useRequest } from '@umijs/max';
 import { Avatar, Card, Col, Dropdown, Form, List, Row, Select, Tooltip } from 'antd';
-import numeral from 'numeral';
 import type { FC } from 'react';
 import type React from 'react';
 import { categoryOptions } from '../../mock';
@@ -201,10 +200,7 @@ export const Applications: FC<Record<string, any>> = () => {
             >
               <Card.Meta avatar={<Avatar size='small' src={item.avatar} />} title={item.title} />
               <div>
-                <CardInfo
-                  activeUser={formatWan(item.activeUser)}
-                  newUser={numeral(item.newUser).format('0,0')}
-                />
+                <CardInfo activeUser={formatWan(item.activeUser)} newUser={item.newUser} />
               </div>
             </Card>
           </List.Item>
