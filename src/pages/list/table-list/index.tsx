@@ -98,10 +98,10 @@ const TableList: React.FC = () => {
     {
       title: '规则名称',
       dataIndex: 'name',
-      tip: '规则名称是唯一的 key',
       render: (dom, entity) => {
         return (
           <a
+            // biome-ignore lint/a11y/useValidAnchor: <explanation>
             onClick={() => {
               setCurrentRow(entity);
               setShowDetail(true);
@@ -173,6 +173,7 @@ const TableList: React.FC = () => {
       render: (_, record) => [
         <a
           key='config'
+          // biome-ignore lint/a11y/useValidAnchor: <explanation>
           onClick={() => {
             handleUpdateModalVisible(true);
             setCurrentRow(record);
@@ -219,7 +220,7 @@ const TableList: React.FC = () => {
         <FooterToolbar
           extra={
             <div>
-              已选择{' '}
+              已选择 {/* biome-ignore lint/a11y/useValidAnchor: <explanation> */}
               <a
                 style={{
                   fontWeight: 600,

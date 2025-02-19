@@ -152,14 +152,14 @@ const Workplace: FC = () => {
               marginBottom: 24,
             }}
             title='进行中的项目'
-            bordered={false}
+            variant={'borderless'}
             extra={<Link to='/'>全部项目</Link>}
             loading={projectLoading}
             styles={{ body: { padding: 0 } }}
           >
             {projectNotice.map((item) => (
               <Card.Grid className={styles.projectGrid} key={item.id}>
-                <Card styles={{ body: { padding: 0 } }} bordered={false}>
+                <Card styles={{ body: { padding: 0 } }} variant={'borderless'}>
                   <Card.Meta
                     title={
                       <div className={styles.cardTitle}>
@@ -183,7 +183,7 @@ const Workplace: FC = () => {
           </Card>
           <Card
             styles={{ body: { padding: 0 } }}
-            bordered={false}
+            variant={'borderless'}
             className={styles.activeCard}
             title='动态'
             loading={activitiesLoading}
@@ -203,7 +203,7 @@ const Workplace: FC = () => {
               marginBottom: 24,
             }}
             title='快速开始 / 便捷导航'
-            bordered={false}
+            variant={'borderless'}
             styles={{ body: { padding: 0 } }}
           >
             <EditableLinkGroup onAdd={() => {}} links={links} linkElement={Link} />
@@ -212,7 +212,7 @@ const Workplace: FC = () => {
             style={{
               marginBottom: 24,
             }}
-            bordered={false}
+            variant={'borderless'}
             title='XX 指数'
             loading={data?.radarData?.length === 0}
           >
@@ -250,7 +250,7 @@ const Workplace: FC = () => {
                 paddingBottom: 12,
               },
             }}
-            bordered={false}
+            variant={'borderless'}
             title='团队'
             loading={projectLoading}
           >

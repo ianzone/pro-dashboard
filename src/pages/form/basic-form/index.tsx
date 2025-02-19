@@ -26,8 +26,8 @@ const BasicForm: FC<Record<string, any>> = () => {
     run(values);
   };
   return (
-    <PageContainer content="表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。">
-      <Card bordered={false}>
+    <PageContainer content='表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。'>
+      <Card variant={'borderless'}>
         <ProForm
           hideRequiredMark
           style={{
@@ -35,29 +35,29 @@ const BasicForm: FC<Record<string, any>> = () => {
             marginTop: 8,
             maxWidth: 600,
           }}
-          name="basic"
-          layout="vertical"
+          name='basic'
+          layout='vertical'
           initialValues={{
             public: '1',
           }}
           onFinish={onFinish}
         >
           <ProFormText
-            width="md"
-            label="标题"
-            name="title"
+            width='md'
+            label='标题'
+            name='title'
             rules={[
               {
                 required: true,
                 message: '请输入标题',
               },
             ]}
-            placeholder="给目标起个名字"
+            placeholder='给目标起个名字'
           />
           <ProFormDateRangePicker
-            label="起止日期"
-            width="md"
-            name="date"
+            label='起止日期'
+            width='md'
+            name='date'
             rules={[
               {
                 required: true,
@@ -67,54 +67,54 @@ const BasicForm: FC<Record<string, any>> = () => {
             placeholder={['开始日期', '结束日期']}
           />
           <ProFormTextArea
-            label="目标描述"
-            width="xl"
-            name="goal"
+            label='目标描述'
+            width='xl'
+            name='goal'
             rules={[
               {
                 required: true,
                 message: '请输入目标描述',
               },
             ]}
-            placeholder="请输入你的阶段性工作目标"
+            placeholder='请输入你的阶段性工作目标'
           />
 
           <ProFormTextArea
-            label="衡量标准"
-            name="standard"
-            width="xl"
+            label='衡量标准'
+            name='standard'
+            width='xl'
             rules={[
               {
                 required: true,
                 message: '请输入衡量标准',
               },
             ]}
-            placeholder="请输入衡量标准"
+            placeholder='请输入衡量标准'
           />
 
           <ProFormText
-            width="md"
+            width='md'
             label={
               <span>
                 客户
                 <em className={styles.optional}>（选填）</em>
               </span>
             }
-            tooltip="目标的服务对象"
-            name="client"
-            placeholder="请描述你服务的客户，内部客户直接 @姓名／工号"
+            tooltip='目标的服务对象'
+            name='client'
+            placeholder='请描述你服务的客户，内部客户直接 @姓名／工号'
           />
 
           <ProFormText
-            width="md"
+            width='md'
             label={
               <span>
                 邀评人
                 <em className={styles.optional}>（选填）</em>
               </span>
             }
-            name="invites"
-            placeholder="请直接 @姓名／工号，最多可邀请 5 人"
+            name='invites'
+            placeholder='请直接 @姓名／工号，最多可邀请 5 人'
           />
 
           <ProFormDigit
@@ -124,11 +124,11 @@ const BasicForm: FC<Record<string, any>> = () => {
                 <em className={styles.optional}>（选填）</em>
               </span>
             }
-            name="weight"
-            placeholder="请输入"
+            name='weight'
+            placeholder='请输入'
             min={0}
             max={100}
-            width="xs"
+            width='xs'
             fieldProps={{
               formatter: (value) => `${value || 0}%`,
               parser: (value) => Number(value ? value.replace('%', '') : '0'),
@@ -150,16 +150,16 @@ const BasicForm: FC<Record<string, any>> = () => {
                 label: '不公开',
               },
             ]}
-            label="目标公开"
-            help="客户、邀评人默认被分享"
-            name="publicType"
+            label='目标公开'
+            help='客户、邀评人默认被分享'
+            name='publicType'
           />
           <ProFormDependency name={['publicType']}>
             {({ publicType }) => {
               return (
                 <ProFormSelect
-                  width="md"
-                  name="publicUsers"
+                  width='md'
+                  name='publicUsers'
                   fieldProps={{
                     style: {
                       margin: '8px 0',

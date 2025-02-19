@@ -20,7 +20,7 @@ const CustomTab = ({
     <Col span={12}>
       <NumberInfo
         title={data.name}
-        subTitle="转化率"
+        subTitle='转化率'
         gap={2}
         total={`${data.cvr * 100}%`}
         theme={currentKey !== data.name ? 'light' : undefined}
@@ -55,7 +55,7 @@ const OfflineData = ({
     <Card
       loading={loading}
       className={styles.offlineCard}
-      bordered={false}
+      variant={'borderless'}
       style={{
         marginTop: 32,
       }}
@@ -75,9 +75,9 @@ const OfflineData = ({
               <Line
                 height={400}
                 data={offlineChartData}
-                xField="date"
-                yField="value"
-                colorField="type"
+                xField='date'
+                yField='value'
+                colorField='type'
                 slider={{ x: true }}
                 axis={{
                   x: { title: false },

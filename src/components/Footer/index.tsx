@@ -1,13 +1,13 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 
-const Footer: React.FC = () => {
+export function Footer() {
   return (
     <DefaultFooter
       style={{
         background: 'none',
       }}
-      copyright='Powered by Ant Desgin'
+      copyright='Powered by Ant Design'
       links={[
         {
           key: 'Ant Design Pro',
@@ -30,6 +30,4 @@ const Footer: React.FC = () => {
       ]}
     />
   );
-};
-
-export default Footer;
+}

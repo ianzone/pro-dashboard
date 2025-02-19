@@ -1,8 +1,8 @@
 import { Avatar, Tooltip } from 'antd';
 import classNames from 'classnames';
-
 import { Children, type ReactElement, cloneElement } from 'react';
 import useStyles from './index.style';
+
 export declare type SizeType = number | 'small' | 'default' | 'large';
 export type AvatarItemProps = {
   tips: React.ReactNode;
@@ -77,4 +77,4 @@ const AvatarList: React.FC<AvatarListProps> & {
   );
 };
 AvatarList.Item = Item;
-export default AvatarList;
+export { AvatarList };

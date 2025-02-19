@@ -124,7 +124,7 @@ const Register: FC = () => {
     const value = form.getFieldValue('password');
     const passwordStatus = getPasswordStatus();
     return value?.length ? (
-      <div className={styles[`progress-${passwordStatus}`]}>
+      <div className={styles['progress-pass > .progress']}>
         <Progress
           status={passwordProgressMap[passwordStatus]}
           strokeWidth={6}

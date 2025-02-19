@@ -35,7 +35,7 @@ const Monitor: FC = () => {
               marginBottom: 24,
             }}
           >
-            <Card title='活动实时交易情况' bordered={false}>
+            <Card title='活动实时交易情况' variant={'borderless'}>
               <Row>
                 <Col md={6} sm={12} xs={24}>
                   <Statistic title='今日交易总额' suffix='元' value={124543233} />
@@ -66,7 +66,7 @@ const Monitor: FC = () => {
               style={{
                 marginBottom: 24,
               }}
-              bordered={false}
+              variant={'borderless'}
             >
               <ActiveChart />
             </Card>
@@ -76,7 +76,7 @@ const Monitor: FC = () => {
                 marginBottom: 24,
               }}
               styles={{ body: { textAlign: 'center' } }}
-              bordered={false}
+              variant={'borderless'}
             >
               <Gauge
                 height={180}
@@ -111,7 +111,7 @@ const Monitor: FC = () => {
               marginBottom: 24,
             }}
           >
-            <Card title='各品类占比' bordered={false}>
+            <Card title='各品类占比' variant={'borderless'}>
               <Row
                 style={{
                   padding: '16px 0',
@@ -142,7 +142,7 @@ const Monitor: FC = () => {
               data-testid={'热门搜索'}
               title='热门搜索'
               loading={loading}
-              bordered={false}
+              variant={'borderless'}
               styles={{
                 body: {
                   overflow: 'hidden',
@@ -176,7 +176,7 @@ const Monitor: FC = () => {
                   fontSize: 0,
                 },
               }}
-              bordered={false}
+              variant={'borderless'}
             >
               <Liquid height={160} percent={0.35} />
             </Card>

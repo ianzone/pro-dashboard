@@ -1,12 +1,12 @@
 import { Column } from '@ant-design/plots';
-import { Card, Col, DatePicker, Row, Tabs } from 'antd';
-import type { PickerProps } from 'antd/es/date-picker/generatePicker';
-import type dayjs from 'dayjs';
+import { Card, Col, DatePicker, type GetProps, Row, Tabs } from 'antd';
 import type { DataItem } from '../data.d';
 import useStyles from '../style.style';
 
 export type TimeType = 'today' | 'week' | 'month' | 'year';
 const { RangePicker } = DatePicker;
+
+type RangePickerType = GetProps<typeof RangePicker>;
 
 const rankingListData: {
   title: string;
@@ -28,16 +28,16 @@ const SalesCard = ({
   loading,
   selectDate,
 }: {
-  rangePickerValue: PickerProps<dayjs.Dayjs>['value'];
+  rangePickerValue: RangePickerType['value'];
   isActive: (key: TimeType) => string;
   salesData: DataItem[];
   loading: boolean;
-  handleRangePickerChange: PickerProps<dayjs.Dayjs>['onChange'];
+  handleRangePickerChange: RangePickerType['onChange'];
   selectDate: (key: TimeType) => void;
 }) => {
   const { styles } = useStyles();
   return (
-    <Card loading={loading} bordered={false} styles={{ body: { padding: 0 } }}>
+    <Card loading={loading} variant={'borderless'} styles={{ body: { padding: 0 } }}>
       <div className={styles.salesCard}>
         <Tabs
           tabBarExtraContent={

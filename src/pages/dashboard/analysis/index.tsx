@@ -46,11 +46,14 @@ const Analysis: FC<AnalysisProps> = () => {
     if (!value) {
       return '';
     }
+    // @ts-ignore
     if (!rangePickerValue[0] || !rangePickerValue[1]) {
       return '';
     }
     if (
+      // @ts-ignore
       rangePickerValue[0].isSame(value[0] as dayjs.Dayjs, 'day') &&
+      // @ts-ignore
       rangePickerValue[1].isSame(value[1] as dayjs.Dayjs, 'day')
     ) {
       return styles.currentDate;
@@ -58,7 +61,7 @@ const Analysis: FC<AnalysisProps> = () => {
     return '';
   };
 
-  let salesPieData;
+  let salesPieData: any;
 
   if (salesType === 'all') {
     salesPieData = data?.salesTypeData;
@@ -103,9 +106,11 @@ const Analysis: FC<AnalysisProps> = () => {
 
         <Suspense fallback={null}>
           <SalesCard
+            // @ts-ignore
             rangePickerValue={rangePickerValue}
             salesData={data?.salesData || []}
             isActive={isActive}
+            // @ts-ignore
             handleRangePickerChange={handleRangePickerChange}
             loading={loading}
             selectDate={selectDate}

@@ -37,8 +37,7 @@ export default {
   'pages.searchTable.updateForm.ruleName.nameRules': 'বিধির নাম লিখুন!',
   'pages.searchTable.updateForm.ruleDesc.descLabel': 'বিধির বিবরণ',
   'pages.searchTable.updateForm.ruleDesc.descPlaceholder': 'কমপক্ষে পাঁচটি অক্ষর লিখুন',
-  'pages.searchTable.updateForm.ruleDesc.descRules':
-    'কমপক্ষে পাঁচটি অক্ষরের একটি বিধান বিবরণ লিখুন!',
+  'pages.searchTable.updateForm.ruleDesc.descRules': 'কমপক্ষে পাঁচটি অক্ষরের একটি বিধান বিবরণ লিখুন!',
   'pages.searchTable.updateForm.ruleProps.title': 'বৈশিষ্ট্য কনফিগার করুন',
   'pages.searchTable.updateForm.object': 'নিরীক্ষণ অবজেক্ট',
   'pages.searchTable.updateForm.ruleProps.templateLabel': 'বিধি টেম্পলেট',

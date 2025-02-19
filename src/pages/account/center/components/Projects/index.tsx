@@ -3,9 +3,10 @@ import { Card, List } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
+import { AvatarList } from '@/components';
 import type { ListItemDataType } from '../../data.d';
 import { queryFakeList } from '../../service';
-import AvatarList from '../AvatarList';
+
 import useStyles from './index.style';
 dayjs.extend(relativeTime);
 const Projects: React.FC = () => {

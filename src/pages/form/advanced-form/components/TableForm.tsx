@@ -1,7 +1,8 @@
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Divider, Input, message, Popconfirm, Table } from 'antd';
+import { Button, Divider, Input, Popconfirm, Table, message } from 'antd';
 import type { FC } from 'react';
-import React, { useState } from 'react';
+import type React from 'react';
+import { useState } from 'react';
 import useStyles from '../style.style';
 type TableFormDateType = {
   key: string;
@@ -143,7 +144,7 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
               autoFocus
               onChange={(e) => handleFieldChange(e, 'name', record.key)}
               onKeyPress={(e) => handleKeyPress(e, record.key)}
-              placeholder="成员姓名"
+              placeholder='成员姓名'
             />
           );
         }
@@ -162,7 +163,7 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
               value={text}
               onChange={(e) => handleFieldChange(e, 'workId', record.key)}
               onKeyPress={(e) => handleKeyPress(e, record.key)}
-              placeholder="工号"
+              placeholder='工号'
             />
           );
         }
@@ -181,7 +182,7 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
               value={text}
               onChange={(e) => handleFieldChange(e, 'department', record.key)}
               onKeyPress={(e) => handleKeyPress(e, record.key)}
-              placeholder="所属部门"
+              placeholder='所属部门'
             />
           );
         }
@@ -200,8 +201,8 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
             return (
               <span>
                 <a onClick={(e) => saveRow(e, record.key)}>添加</a>
-                <Divider type="vertical" />
-                <Popconfirm title="是否要删除此行？" onConfirm={() => remove(record.key)}>
+                <Divider type='vertical' />
+                <Popconfirm title='是否要删除此行？' onConfirm={() => remove(record.key)}>
                   <a>删除</a>
                 </Popconfirm>
               </span>
@@ -210,7 +211,7 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
           return (
             <span>
               <a onClick={(e) => saveRow(e, record.key)}>保存</a>
-              <Divider type="vertical" />
+              <Divider type='vertical' />
               <a onClick={(e) => cancel(e, record.key)}>取消</a>
             </span>
           );
@@ -218,8 +219,8 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
         return (
           <span>
             <a onClick={(e) => toggleEditable(e, record.key)}>编辑</a>
-            <Divider type="vertical" />
-            <Popconfirm title="是否要删除此行？" onConfirm={() => remove(record.key)}>
+            <Divider type='vertical' />
+            <Popconfirm title='是否要删除此行？' onConfirm={() => remove(record.key)}>
               <a>删除</a>
             </Popconfirm>
           </span>
@@ -242,7 +243,7 @@ const TableForm: FC<TableFormProps> = ({ value, onChange }) => {
           marginTop: 16,
           marginBottom: 8,
         }}
-        type="dashed"
+        type='dashed'
         onClick={newMember}
       >
         <PlusOutlined />

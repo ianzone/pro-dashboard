@@ -1,10 +1,10 @@
+import { AvatarList } from '@/components';
 import { useRequest } from '@umijs/max';
 import { Card, Col, Form, List, Row, Select, Typography } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import type { FC } from 'react';
 import { categoryOptions } from '../../mock';
-import AvatarList from './components/AvatarList';
 import StandardFormRow from './components/StandardFormRow';
 import TagSelect from './components/TagSelect';
 import type { ListItemDataType } from './data.d';
@@ -85,7 +85,7 @@ const Projects: FC = () => {
   };
   return (
     <div className={styles.coverCardList}>
-      <Card bordered={false}>
+      <Card variant={'borderless'}>
         <Form
           layout='inline'
           onValuesChange={(_, values) => {
