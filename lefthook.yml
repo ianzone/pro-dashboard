@@ -4,19 +4,19 @@
 pre-commit:
   piped: true
   jobs:
-    # - name: Linting & Formatting
-    #   glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
-    #   run: na biome check --fix {staged_files} --reporter summary
-    #   stage_fixed: true
+    - name: Linting & Formatting
+      glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
+      run: na biome check --fix {staged_files} --reporter summary
+      stage_fixed: true
 
     - name: QA, Audit, Misc
       group:
         parallel: true
         jobs:
           # SECTION - QA
-          # - name: typescript
-          #   glob: "*.{ts,tsx}"
-          #   run: na tsc
+          - name: typescript
+            glob: "*.{ts,tsx}"
+            run: na tsc
           # - name: vitest
           #   glob: "*.ts"
           #   run: na vitest related --run {staged_files}
@@ -48,4 +48,4 @@ prepare-commit-msg:
 post-merge:
   commands:
     packages:
-      run: git diff --quiet HEAD@{$(echo 1)} -- bun.lockb || ni
+      run: git diff --quiet HEAD@{$(echo 1)} -- bun.lockb || bun i

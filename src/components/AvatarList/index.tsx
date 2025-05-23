@@ -1,23 +1,30 @@
 import { Avatar, Tooltip } from 'antd';
 import classNames from 'classnames';
-import { Children, type ReactElement, cloneElement } from 'react';
-import useStyles from './index.style';
+import {
+  type CSSProperties,
+  Children,
+  type FC,
+  type ReactElement,
+  type ReactNode,
+  cloneElement,
+} from 'react';
+import { useStyles } from './index.style';
 
 export declare type SizeType = number | 'small' | 'default' | 'large';
 export type AvatarItemProps = {
-  tips: React.ReactNode;
+  tips: ReactNode;
   src: string;
   size?: SizeType;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
   onClick?: () => void;
 };
 export type AvatarListProps = {
-  Item?: React.ReactElement<AvatarItemProps>;
+  Item?: ReactElement<AvatarItemProps>;
   size?: SizeType;
   maxLength?: number;
-  excessItemsStyle?: React.CSSProperties;
-  style?: React.CSSProperties;
-  children: React.ReactElement<AvatarItemProps> | React.ReactElement<AvatarItemProps>[];
+  excessItemsStyle?: CSSProperties;
+  style?: CSSProperties;
+  children: ReactElement<AvatarItemProps> | ReactElement<AvatarItemProps>[];
 };
 const avatarSizeToClassName = (size: SizeType | 'mini', styles: any) =>
   classNames(styles.avatarItem, {
@@ -26,7 +33,7 @@ const avatarSizeToClassName = (size: SizeType | 'mini', styles: any) =>
     [styles.avatarItemMini]: size === 'mini',
   });
 
-const Item: React.FC<AvatarItemProps> = ({ src, size, tips, onClick = () => {} }) => {
+const Item: FC<AvatarItemProps> = ({ src, size, tips, onClick = () => {} }) => {
   const { styles } = useStyles();
 
   const cls = avatarSizeToClassName(size!, styles);
@@ -49,7 +56,8 @@ const Item: React.FC<AvatarItemProps> = ({ src, size, tips, onClick = () => {} }
     </li>
   );
 };
-const AvatarList: React.FC<AvatarListProps> & {
+
+const AvatarList: FC<AvatarListProps> & {
   Item: typeof Item;
 } = ({ children, size, maxLength = 5, excessItemsStyle, ...other }) => {
   const { styles } = useStyles();

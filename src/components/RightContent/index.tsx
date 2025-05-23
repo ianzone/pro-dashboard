@@ -17,6 +17,9 @@ export const Question = () => {
       onClick={() => {
         window.open('https://pro.ant.design/docs/getting-started');
       }}
+      onKeyDown={() => {
+        window.open('https://pro.ant.design/docs/getting-started');
+      }}
     >
       <QuestionCircleOutlined />
     </div>

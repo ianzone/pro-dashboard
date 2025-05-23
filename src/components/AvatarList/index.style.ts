@@ -1,6 +1,6 @@
 import { createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ token }) => {
+export const useStyles = createStyles(({ token }) => {
   return {
     avatarList: {
       display: 'inline-block',
@@ -37,5 +37,3 @@ const useStyles = createStyles(({ token }) => {
     },
   };
 });
-
-export default useStyles;
