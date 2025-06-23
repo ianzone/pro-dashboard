@@ -13,7 +13,7 @@ import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
 const TableList: React.FC = () => {
-  const actionRef = useRef<ActionType>();
+  const actionRef = useRef<ActionType | null>(null);
 
   const [showDetail, setShowDetail] = useState<boolean>(false);
   const [currentRow, setCurrentRow] = useState<API.RuleListItem>();
