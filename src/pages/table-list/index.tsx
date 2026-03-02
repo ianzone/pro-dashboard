@@ -1,14 +1,9 @@
-import { removeRule, rule } from '@/services/ant-design-pro/api';
 import type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';
-import {
-  FooterToolbar,
-  PageContainer,
-  ProDescriptions,
-  ProTable,
-} from '@ant-design/pro-components';
+import { FooterToolbar, PageContainer, ProDescriptions, ProTable } from '@ant-design/pro-components';
 import { FormattedMessage, useIntl, useRequest } from '@umijs/max';
 import { Button, Drawer, Input, message } from 'antd';
 import { useCallback, useRef, useState } from 'react';
+import { removeRule, rule } from '@/services/ant-design-pro/api';
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
 
@@ -42,12 +37,7 @@ const TableList: React.FC = () => {
 
   const columns: ProColumns<API.RuleListItem>[] = [
     {
-      title: (
-        <FormattedMessage
-          id='pages.searchTable.updateForm.ruleName.nameLabel'
-          defaultMessage='Rule name'
-        />
-      ),
+      title: <FormattedMessage id='pages.searchTable.updateForm.ruleName.nameLabel' defaultMessage='Rule name' />,
       dataIndex: 'name',
       render: (dom, entity) => {
         return (
@@ -69,12 +59,7 @@ const TableList: React.FC = () => {
       valueType: 'textarea',
     },
     {
-      title: (
-        <FormattedMessage
-          id='pages.searchTable.titleCallNo'
-          defaultMessage='Number of service calls'
-        />
-      ),
+      title: <FormattedMessage id='pages.searchTable.titleCallNo' defaultMessage='Number of service calls' />,
       dataIndex: 'callNo',
       sorter: true,
       hideInForm: true,
@@ -90,44 +75,25 @@ const TableList: React.FC = () => {
       hideInForm: true,
       valueEnum: {
         0: {
-          text: (
-            <FormattedMessage
-              id='pages.searchTable.nameStatus.default'
-              defaultMessage='Shut down'
-            />
-          ),
+          text: <FormattedMessage id='pages.searchTable.nameStatus.default' defaultMessage='Shut down' />,
           status: 'Default',
         },
         1: {
-          text: (
-            <FormattedMessage id='pages.searchTable.nameStatus.running' defaultMessage='Running' />
-          ),
+          text: <FormattedMessage id='pages.searchTable.nameStatus.running' defaultMessage='Running' />,
           status: 'Processing',
         },
         2: {
-          text: (
-            <FormattedMessage id='pages.searchTable.nameStatus.online' defaultMessage='Online' />
-          ),
+          text: <FormattedMessage id='pages.searchTable.nameStatus.online' defaultMessage='Online' />,
           status: 'Success',
         },
         3: {
-          text: (
-            <FormattedMessage
-              id='pages.searchTable.nameStatus.abnormal'
-              defaultMessage='Abnormal'
-            />
-          ),
+          text: <FormattedMessage id='pages.searchTable.nameStatus.abnormal' defaultMessage='Abnormal' />,
           status: 'Error',
         },
       },
     },
     {
-      title: (
-        <FormattedMessage
-          id='pages.searchTable.titleUpdatedAt'
-          defaultMessage='Last scheduled time'
-        />
-      ),
+      title: <FormattedMessage id='pages.searchTable.titleUpdatedAt' defaultMessage='Last scheduled time' />,
       sorter: true,
       dataIndex: 'updatedAt',
       valueType: 'dateTime',
@@ -166,10 +132,7 @@ const TableList: React.FC = () => {
           values={record}
         />,
         <a key='subscribeAlert' href='https://procomponents.ant.design/'>
-          <FormattedMessage
-            id='pages.searchTable.subscribeAlert'
-            defaultMessage='Subscribe to alerts'
-          />
+          <FormattedMessage id='pages.searchTable.subscribeAlert' defaultMessage='Subscribe to alerts' />
         </a>,
       ],
     },
@@ -247,22 +210,16 @@ const TableList: React.FC = () => {
               handleRemove(selectedRowsState);
             }}
           >
-            <FormattedMessage
-              id='pages.searchTable.batchDeletion'
-              defaultMessage='Batch deletion'
-            />
+            <FormattedMessage id='pages.searchTable.batchDeletion' defaultMessage='Batch deletion' />
           </Button>
           <Button type='primary'>
-            <FormattedMessage
-              id='pages.searchTable.batchApproval'
-              defaultMessage='Batch approval'
-            />
+            <FormattedMessage id='pages.searchTable.batchApproval' defaultMessage='Batch approval' />
           </Button>
         </FooterToolbar>
       )}
 
       <Drawer
-        width={600}
+        size={600}
         open={showDetail}
         onClose={() => {
           setCurrentRow(undefined);

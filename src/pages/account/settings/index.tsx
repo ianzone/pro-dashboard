@@ -6,6 +6,7 @@ import BindingView from './components/binding';
 import NotificationView from './components/notification';
 import SecurityView from './components/security';
 import useStyles from './style.style';
+
 type SettingsStateKeys = 'base' | 'security' | 'binding' | 'notification';
 type SettingsState = {
   mode: 'inline' | 'horizontal';
@@ -23,7 +24,7 @@ const Settings: React.FC = () => {
     mode: 'inline',
     selectKey: 'base',
   });
-  const dom = useRef<HTMLDivElement>();
+  const dom = useRef<HTMLDivElement>(null);
   const resize = () => {
     requestAnimationFrame(() => {
       if (!dom.current) {
@@ -43,6 +44,7 @@ const Settings: React.FC = () => {
       });
     });
   };
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useLayoutEffect(() => {
     if (dom.current) {
       window.addEventListener('resize', resize);

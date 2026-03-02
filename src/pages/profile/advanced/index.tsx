@@ -1,9 +1,4 @@
-import {
-  DingdingOutlined,
-  DownOutlined,
-  EllipsisOutlined,
-  InfoCircleOutlined,
-} from '@ant-design/icons';
+import { DingdingOutlined, DownOutlined, EllipsisOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import { GridContent, PageContainer, RouteContext } from '@ant-design/pro-components';
 import { useRequest } from '@umijs/max';
 import {
@@ -14,7 +9,6 @@ import {
   Divider,
   Dropdown,
   Empty,
-  Popover,
   Space,
   Statistic,
   Steps,
@@ -23,12 +17,11 @@ import {
 } from 'antd';
 import classNames from 'classnames';
 import type { FC } from 'react';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import type { AdvancedProfileData } from './data.d';
 import { queryAdvancedProfile } from './service';
 import useStyles from './style.style';
 
-const { Step } = Steps;
 const ButtonGroup = Space.Compact;
 
 const action = (
@@ -175,28 +168,24 @@ const Advanced: FC = () => {
   );
   const desc1 = (
     <div className={classNames(styles.stepDescription)}>
-      <Fragment>
-        曲丽丽
-        <DingdingOutlined
-          style={{
-            marginLeft: 8,
-          }}
-        />
-      </Fragment>
+      曲丽丽
+      <DingdingOutlined
+        style={{
+          marginLeft: 8,
+        }}
+      />
       <div>2016-12-12 12:32</div>
     </div>
   );
   const desc2 = (
     <div className={styles.stepDescription}>
-      <Fragment>
-        周毛毛
-        <DingdingOutlined
-          style={{
-            color: '#00A0E9',
-            marginLeft: 8,
-          }}
-        />
-      </Fragment>
+      周毛毛
+      <DingdingOutlined
+        style={{
+          color: '#00A0E9',
+          marginLeft: 8,
+        }}
+      />
       <div>
         <a href='.'>催一下</a>
       </div>
@@ -208,87 +197,14 @@ const Advanced: FC = () => {
     tabActiveKey: 'detail',
   });
 
-  const customDot = (
-    dot: React.ReactNode,
-    {
-      status,
-    }: {
-      status: string;
-    },
-  ) => {
-    const popoverContent = (
-      <div
-        style={{
-          width: 160,
-        }}
-      >
-        吴加号
-        <span
-          style={{
-            float: 'right',
-          }}
-        >
-          <Badge
-            status='default'
-            text={
-              <span
-                style={{
-                  color: 'rgba(0, 0, 0, 0.45)',
-                }}
-              >
-                未响应
-              </span>
-            }
-          />
-        </span>
-        <div
-          style={{
-            marginTop: 4,
-          }}
-        >
-          耗时：2小时25分钟
-        </div>
-      </div>
-    );
-    if (status === 'process') {
-      return (
-        <Popover placement='topLeft' arrow={{ pointAtCenter: true }} content={popoverContent}>
-          <span>{dot}</span>
-        </Popover>
-      );
-    }
-    return dot;
-  };
-
   const { data = {}, loading } = useRequest<{
     data: AdvancedProfileData;
   }>(queryAdvancedProfile);
   const { advancedOperation1, advancedOperation2, advancedOperation3 } = data;
   const contentList = {
-    tab1: (
-      <Table
-        pagination={false}
-        loading={loading}
-        dataSource={advancedOperation1}
-        columns={columns}
-      />
-    ),
-    tab2: (
-      <Table
-        pagination={false}
-        loading={loading}
-        dataSource={advancedOperation2}
-        columns={columns}
-      />
-    ),
-    tab3: (
-      <Table
-        pagination={false}
-        loading={loading}
-        dataSource={advancedOperation3}
-        columns={columns}
-      />
-    ),
+    tab1: <Table pagination={false} loading={loading} dataSource={advancedOperation1} columns={columns} />,
+    tab2: <Table pagination={false} loading={loading} dataSource={advancedOperation2} columns={columns} />,
+    tab3: <Table pagination={false} loading={loading} dataSource={advancedOperation3} columns={columns} />,
   };
   const onTabChange = (tabActiveKey: string) => {
     seTabStatus({
@@ -333,15 +249,16 @@ const Advanced: FC = () => {
             <RouteContext.Consumer>
               {({ isMobile }) => (
                 <Steps
-                  direction={isMobile ? 'vertical' : 'horizontal'}
-                  progressDot={customDot}
+                  orientation={isMobile ? 'vertical' : 'horizontal'}
+                  type='dot'
                   current={1}
-                >
-                  <Step title='创建项目' description={desc1} />
-                  <Step title='部门初审' description={desc2} />
-                  <Step title='财务复核' />
-                  <Step title='完成' />
-                </Steps>
+                  items={[
+                    { title: '创建项目', content: desc1 },
+                    { title: '部门初审', content: desc2 },
+                    { title: '财务复核' },
+                    { title: '完成' },
+                  ]}
+                />
               )}
             </RouteContext.Consumer>
           </Card>
@@ -408,7 +325,7 @@ const Advanced: FC = () => {
               >
                 <Descriptions.Item label='负责人'>林东东</Descriptions.Item>
                 <Descriptions.Item label='角色码'>1234567</Descriptions.Item>
-                <Descriptions.Item label='所属部门'>XX公司 - YY部</Descriptions.Item>
+                <Descriptions.Item label='所属部门'>XX 公司 - YY 部</Descriptions.Item>
                 <Descriptions.Item label='过期时间'>2017-08-08</Descriptions.Item>
                 <Descriptions.Item label='描述'>
                   这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...
@@ -427,8 +344,7 @@ const Advanced: FC = () => {
                 column={1}
               >
                 <Descriptions.Item label='学名'>
-                  Citrullus lanatus (Thunb.) Matsum. et
-                  Nakai一年生蔓生藤本；茎、枝粗壮，具明显的棱。卷须较粗..
+                  Citrullus lanatus (Thunb.) Matsum. et Nakai 一年生蔓生藤本；茎、枝粗壮，具明显的棱。卷须较粗..
                 </Descriptions.Item>
               </Descriptions>
               <Divider
@@ -451,11 +367,7 @@ const Advanced: FC = () => {
           >
             <Empty />
           </Card>
-          <Card
-            variant={'borderless'}
-            tabList={operationTabList}
-            onTabChange={onOperationTabChange}
-          >
+          <Card variant={'borderless'} tabList={operationTabList} onTabChange={onOperationTabChange}>
             {contentList[tabStatus.operationKey] as React.ReactNode}
           </Card>
         </GridContent>

@@ -4,8 +4,6 @@ import { Button, Card, Descriptions, Result, Steps } from 'antd';
 import { Fragment } from 'react';
 import useStyles from './index.style';
 
-const { Step } = Steps;
-
 export default () => {
   const { styles } = useStyles();
   const desc1 = (
@@ -59,54 +57,58 @@ export default () => {
         <Descriptions.Item label='生效时间'>2016-12-12 ~ 2017-12-12</Descriptions.Item>
       </Descriptions>
       <br />
-      <Steps progressDot current={1}>
-        <Step
-          title={
-            <span
-              style={{
-                fontSize: 14,
-              }}
-            >
-              创建项目
-            </span>
-          }
-          description={desc1}
-        />
-        <Step
-          title={
-            <span
-              style={{
-                fontSize: 14,
-              }}
-            >
-              部门初审
-            </span>
-          }
-          description={desc2}
-        />
-        <Step
-          title={
-            <span
-              style={{
-                fontSize: 14,
-              }}
-            >
-              财务复核
-            </span>
-          }
-        />
-        <Step
-          title={
-            <span
-              style={{
-                fontSize: 14,
-              }}
-            >
-              完成
-            </span>
-          }
-        />
-      </Steps>
+      <Steps
+        type='dot'
+        current={1}
+        items={[
+          {
+            title: (
+              <span
+                style={{
+                  fontSize: 14,
+                }}
+              >
+                创建项目
+              </span>
+            ),
+            content: desc1,
+          },
+          {
+            title: (
+              <span
+                style={{
+                  fontSize: 14,
+                }}
+              >
+                部门初审
+              </span>
+            ),
+            content: desc2,
+          },
+          {
+            title: (
+              <span
+                style={{
+                  fontSize: 14,
+                }}
+              >
+                财务复核
+              </span>
+            ),
+          },
+          {
+            title: (
+              <span
+                style={{
+                  fontSize: 14,
+                }}
+              >
+                完成
+              </span>
+            ),
+          },
+        ]}
+      />
     </>
   );
   const extra = (

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/a11y/noStaticElementInteractions: <explanation> */
 import { CloseCircleOutlined } from '@ant-design/icons';
 import type { ProColumnType } from '@ant-design/pro-components';
 import {
@@ -10,11 +11,12 @@ import {
   ProFormText,
   ProFormTimePicker,
 } from '@ant-design/pro-components';
-import { Card, Col, Popover, Row, message } from 'antd';
+import { Card, Col, message, Popover, Row } from 'antd';
 import type { FC } from 'react';
 import { useState } from 'react';
 import { fakeSubmitForm } from './service';
 import useStyles from './style.style';
+
 interface TableFormDateType {
   key: string;
   workId?: string;
@@ -95,7 +97,9 @@ const AdvancedForm: FC<Record<string, any>> = () => {
         <Popover
           title='表单校验信息'
           content={errorList}
-          overlayClassName={styles.errorPopover}
+          classNames={{
+            root: styles.errorPopover,
+          }}
           trigger='click'
           getPopupContainer={(trigger: HTMLElement) => {
             if (trigger?.parentNode) {
@@ -163,7 +167,7 @@ const AdvancedForm: FC<Record<string, any>> = () => {
   return (
     <ProForm
       layout='vertical'
-      hideRequiredMark
+      requiredMark
       submitter={{
         render: (props, dom) => {
           return (

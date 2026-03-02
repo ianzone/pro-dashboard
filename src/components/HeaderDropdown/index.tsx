@@ -1,7 +1,6 @@
 import { Dropdown } from 'antd';
-import { createStyles } from 'antd-style';
 import type { DropDownProps } from 'antd/es/dropdown';
-import classNames from 'classnames';
+import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => {
   return {
@@ -14,14 +13,10 @@ const useStyles = createStyles(({ token }) => {
 });
 
 export type HeaderDropdownProps = {
-  overlayClassName?: string;
   placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight' | 'bottomCenter';
 } & Omit<DropDownProps, 'overlay'>;
 
-export const HeaderDropdown: React.FC<HeaderDropdownProps> = ({
-  overlayClassName: cls,
-  ...restProps
-}) => {
+export const HeaderDropdown: React.FC<HeaderDropdownProps> = ({ ...restProps }) => {
   const { styles } = useStyles();
-  return <Dropdown overlayClassName={classNames(styles.dropdown, cls)} {...restProps} />;
+  return <Dropdown classNames={{ root: styles.dropdown }} {...restProps} />;
 };

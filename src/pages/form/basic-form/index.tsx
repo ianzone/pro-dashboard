@@ -14,6 +14,7 @@ import { Card, message } from 'antd';
 import type { FC } from 'react';
 import { fakeSubmitForm } from './service';
 import useStyles from './style.style';
+
 const BasicForm: FC<Record<string, any>> = () => {
   const { styles } = useStyles();
   const { run } = useRequest(fakeSubmitForm, {
@@ -29,7 +30,6 @@ const BasicForm: FC<Record<string, any>> = () => {
     <PageContainer content='表单页用于向用户收集或验证信息，基础表单常见于数据项较少的表单场景。'>
       <Card variant={'borderless'}>
         <ProForm
-          hideRequiredMark
           style={{
             margin: 'auto',
             marginTop: 8,
